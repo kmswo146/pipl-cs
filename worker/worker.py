@@ -23,13 +23,18 @@ def handle_conversation(conv_doc):
             print(f"Failed to get conversation data for {conversation_id}")
             return
         
-        # Extract conversation history
-        conversation_history = intercom_api.extract_conversation_history(full_history_data)
+        # Extract conversation history (last 20 messages)
+        conversation_history = intercom_api.extract_conversation_history(full_history_data, limit_messages=20)
+        
+        print(f"DEBUG: Conversation history: {len(conversation_history)} messages")
         
         # Generate reply using the reply engine
         reply_text = reply_engine.generate(conversation_history, conv_doc)
         
-        if reply_text:
+        if reply_text is None:
+            print(f"Bot is INACTIVE - skipping reply for conversation {conversation_id}")
+            return
+        elif reply_text:
             print(f"Generated reply for {conversation_id}: {reply_text[:100]}...")
             
             # Send reply via Intercom API

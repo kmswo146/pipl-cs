@@ -9,6 +9,7 @@ db = mongo_client.get_default_database()
 # Collections
 intercom_conversations = db.intercom_conversations
 qa_entries = db.qa_entries
+settings = db.settings
 
 def utc_now():
     """Get current UTC timestamp"""
@@ -90,4 +91,33 @@ def get_pending_conversations(delay_seconds):
         "last_user_ts": {"$lte": cutoff}
     }
     
-    return list(intercom_conversations.find(filter_query)) 
+    return list(intercom_conversations.find(filter_query))
+
+def is_bot_active():
+    """Check if the Intercom bot is active"""
+    try:
+        bot_setting = settings.find_one({"key": "intercom_bot"})
+        if bot_setting:
+            status = bot_setting.get("status", "INACTIVE")
+            print(f"DEBUG: Bot status: {status}")
+            return status == "ACTIVE"
+        else:
+            print("DEBUG: No bot status setting found - defaulting to INACTIVE")
+            return False
+    except Exception as e:
+        print(f"ERROR checking bot status: {e}")
+        return False  # Fail safe - don't send replies if we can't check status
+
+def set_bot_status(status):
+    """Set the Intercom bot status (ACTIVE/INACTIVE)"""
+    try:
+        result = settings.update_one(
+            {"key": "intercom_bot"},
+            {"$set": {"key": "intercom_bot", "status": status, "updated_at": utc_now()}},
+            upsert=True
+        )
+        print(f"DEBUG: Bot status set to {status}")
+        return result
+    except Exception as e:
+        print(f"ERROR setting bot status: {e}")
+        return None 

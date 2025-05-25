@@ -1,0 +1,182 @@
+[
+  {
+    "question": "<p>hey</p>",
+    "answer": "<p>Test reply with image:</p>\n<div class=\"intercom-container\"><img src=\"https://app.pipl.ai/v2/images/logo.png\" alt=\"logo\"></div>"
+  },
+  {
+    "question": "<p>Hey Kurt and team can I check, using the API, how do I reply to positive responses and have it reply in the same thread. </p>\n<p>it seems everytime I use the HTTP request it sends the email but in a new thread. I'm using the reply to id that looks like this 6831f5cd722d47b3bb6cd704</p>",
+    "answer": "<p>Hi Solomon, tech team will be back to you as soon as they are back online</p>"
+  },
+  {
+    "question": "<p>test</p>",
+    "answer": "<p>Test reply with image:</p>\n<div class=\"intercom-container\"><img src=\"https://app.pipl.ai/v2/images/logo.png\" alt=\"logo\"></div>"
+  },
+  {
+    "question": "<p>Hey, I want to request a new feature for the email accounts dashboard. Can you add the actual sending info of the day to the export report/file, instead of just the sending limit for cold and warm up emails?</p>\n<p>That information is very useful for my operations and managing my campaigns. With the previous dashboard, I used Instant Data Scraper to collect the data, but the tool doesn't work well with the new design.</p>",
+    "answer": "<p class=\"no-margin\">Hi, let us look into it </p>"
+  },
+  {
+    "question": "<p>Hello. For the DFY email setup, can I use domains that I've already purchased?</p>",
+    "answer": "<p class=\"no-margin\">Hi, where are you hosting your domain and how many inbox do you plan to order?</p>"
+  },
+  {
+    "question": "<p>Hi there, I need to upload my domains please!</p>",
+    "answer": "<p class=\"no-margin\">how can we help?</p>"
+  },
+  {
+    "question": "<p>Hi I see connect unlimited email accounts so I purchased a plan and then it shows fair usage limits after I purchased with no indication of this beforehand. </p>",
+    "answer": "<p class=\"no-margin\">Hi, this is a industry standard practice we follow unfortunately. All other sequencers also promote themselves as unlimited while having a actual fair usage limit. We have a limit of 300 email accounts for personal plan and 1000 email accounts for business plan.</p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">If this doesn't fit your need we can provide you with a refund. We will look to improve the wording as well.</p>"
+  },
+  {
+    "question": "<p>Hi,<br>We\u2019ve been reviewing our billing records and noticed that the company name on past invoices was incorrect. For our internal administration, it's important that the following information is reflected on the invoices:<br>Company Name: VM E-Commerce<br>Address: H. Kamerlingh Onnesweg 67, 1402EE Bussum, Netherlands<br>KVK Number: 92078184<br>VAT Number: NL865876198B01<br>Would it be possible to update the previous invoices with this information? We would greatly appreciate your help with this matter.</p>",
+    "answer": "<p class=\"no-margin\">Hi Mees, sure, let me pas this to our team. </p>"
+  },
+  {
+    "question": "<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1520698733/74f8512ce18937e70daff5500b3e/image.png?expires=1748160900&amp;signature=7b02b7a9fed31699fde04491a91a69a510267705edb13e41d204f368c2826fbb&amp;req=dSUlFs93lYZcWvMW1HO4zR%2BUYnxb3w3kVmqgoGofukVKzSTlf%2Bu6Jxvv1%2BQd%0A7E%2BsS4DIVXKM8LounvI%3D%0A\"></div>",
+    "answer": "<p class=\"no-margin\">Hi Leonardo, likely to a huge load on the system during end of day. Passing this to the tech team, thanks </p>"
+  },
+  {
+    "question": "<p>How much is a workspace again</p>",
+    "answer": "<p class=\"no-margin\">Hi Priyanshu, it's $29/mo, adding a new workspace now</p>"
+  },
+  {
+    "question": "<p>is there any way to bulk recheck SPF/DKIM/DMARC?</p>",
+    "answer": "<p class=\"no-margin\">we can reset the flag for you for a workspace</p>"
+  },
+  {
+    "question": "<p>hey there, can you help me bulk upload some inboxes?</p>",
+    "answer": "<p class=\"no-margin\">Hi Mark, if these are azure inboxes, can you please send files to <a href=\"mailto:support@plusvibe.ai\" rel=\"nofollow noopener noreferrer\" target=\"_blank\" class=\"intercom-content-link\">support@plusvibe.ai</a> ? </p>"
+  },
+  {
+    "question": "<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1539058329/f3fc36ac0229ff89eaf0ecbea6e5/Screenshot+2025-05-24+at+07_56_07.png?expires=1748160900&amp;signature=882559e9b16faf1b584adc0dd1425a22bff14decdcf52d1c0a566cda842991be&amp;req=dSUkH8l7lYJdUPMW1HO4za%2FKlY4hoFMYRP04JP7fsM0PZmICEHBpfT55PLf%2F%0AEoZGvA%2BAtpnCneM0jok%3D%0A\"></div>",
+    "answer": "<p class=\"no-margin\">how are you adding?</p>"
+  },
+  {
+    "question": "<div dir=\"ltr\">Hey there, just need to upload these inboxes to my account under the same email that I'm writing from.</div>",
+    "answer": "<p class=\"no-margin\">Hi Mark, upload started. </p>"
+  },
+  {
+    "question": "<p>Delivery Status Notification (Delay)</p>",
+    "answer": "<p class=\"no-margin\">Hi Taylor, we've just discovered that one of a leading Azure infrastructure providers are having major infrastructure issues. Many of these providers' users account went down.<br><br>We have immediately halted warmup sending to these accounts.<br>\u200b<br>It was a minor increase that won't influence reputation of other users and we've already halted all the warmup to this provider.</p>\n<p class=\"no-margin\"><br>\u200b</p>"
+  },
+  {
+    "question": "<p>Hi team, is there any way to personalize directly through plusvibe the first line of the emails?</p>\n<p>The one that recipients see next to the subject.</p>",
+    "answer": "<p>This part is usually beginning of your email body.</p>\n<p>We don\u2019t allow you to change that</p>"
+  },
+  {
+    "question": "<p>In what order to the emails get sent out?  Does it go straight in order as to how they are ordered in the spreadsheet, one row at a time starting with the first row?  Or is it random? Thanks.</p>",
+    "answer": "<p class=\"no-margin\">Hi Guy, emails will go out in an order displayed in campaign view once imported. </p>"
+  },
+  {
+    "question": "<p>Hello,<br>I have some Superwave domains I would like to have uploaded</p>",
+    "answer": "<p>Please send to <a href=\"mailto:support@plusvibe.ai\" rel=\"nofollow noopener noreferrer\" target=\"_blank\" class=\"intercom-content-link\">support@plusvibe.ai</a></p>"
+  },
+  {
+    "question": "<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1531928382/270a207c8077cbe9eaea22ff4ced/image.png?expires=1748160900&amp;signature=ae5bd6a167ce05f834da4b107bbaff33b0fc76704186947521c438fecf5705ed&amp;req=dSUkF8B8lYJXW%2FMW1HO4zaaWf5jV4T3OWu1xxN9%2BUOtOwApxNomrCsZGWmsJ%0AZJKRARMeZM0TNKNOF4E%3D%0A\"></div>",
+    "answer": "<p class=\"no-margin\">hi Max, just like other platforms, we have a fair usage policy in place at 1000 max accounts for business plan users. You have reached your maximum allowed limit. To connect extra, it will be $50 per month per extra 1000 email accounts.</p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">I understand the confusion, but it's exactly the same policy other tools on the market have.</p>"
+  },
+  {
+    "question": "<p>I have been seeing a few other tools having inbox placement testing. Do you plan to have that? Is it worth it?</p>",
+    "answer": "<p class=\"no-margin\">Hi Ricardo, it depends on methodology and quality of the seed list, but generally yes, it's worth it and could be a good indicator of infrastructure health. </p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">It's one of the features we're looking to develop, but timeline here could not yet be estimated yet. </p>"
+  },
+  {
+    "question": "<p>Hi, I've logged in after a while and I don't see any replies in the unibox - there were 100s of replies in the unibox last I checked, I can see in the campaigns and analytics are showing those replies but nothing when we click to see those individual replies, is this because of the unibox v2?</p>",
+    "answer": "<p class=\"no-margin\">i see that you have 300+ in other replies</p>"
+  },
+  {
+    "question": "<p>Hey, when I get a webhook payload for a new email message received, it seems to be missing the ID for the message. </p>",
+    "answer": "<p class=\"no-margin\">Hi Campbell, our tech team check your question once they are back online.</p>"
+  },
+  {
+    "question": "<p>Good Morning.  Anyone available for a quick question?</p>",
+    "answer": "<p class=\"no-margin\">Hi Michael, sure, how can I help? </p>"
+  },
+  {
+    "question": "<p>hey team! need your help updating the blacklist for justwin space. we re-thought it and now i need to clean it up fully and upload the updated version of it. can you help me with this please? thanks in advance </p>",
+    "answer": "<p class=\"no-margin\">you want to remove everything in the block list from the justwin space, is that correct?</p>"
+  },
+  {
+    "question": "<div dir=\"ltr\">\n<div>Hi Team,</div>\n<div><br></div>\n<div>I manually submitted an upload with Task ID: 1bb6d477-e0d1-4aea-85a1-8dca45e4645e<br><br>It's for 10 domains - 99 emails each. </div>\n<div><br></div>\n<div>Workspace is under: </div>\n<h6 style=\"padding:0px;margin:0px;font-family:Inter,sans-serif;font-size:0.9rem;color:rgb(7,20,55);letter-spacing:0.15px\">William Endico</h6>\n<p style=\"padding:0px;margin:0px;font-family:Inter,sans-serif;font-size:0.8rem;color:rgb(153,161,183);letter-spacing:0.15px\"><a href=\"mailto:info@endicodatastrategic.com\" target=\"_blank\" rel=\"nofollow\">info@endicodatastrategic.com</a></p>\n<p style=\"padding:0px;margin:0px;font-family:Inter,sans-serif;font-size:0.8rem;color:rgb(153,161,183);letter-spacing:0.15px\"><br></p>\n<p style=\"padding:0px;margin:0px;font-family:Inter,sans-serif;font-size:0.8rem;letter-spacing:0.15px\"><font>Attaching the email accounts to this message as well, I'm not sure my upload worked because I'm not seeing any emails in the workspace account. Please advise. Thanks in advance.</font></p>\n<div><div dir=\"ltr\"><div dir=\"ltr\">\n<p style=\"margin:0in;font-size:11pt\"><span style=\"color:rgb(34,34,34);font-size:small\"><br></span></p>\n<p style=\"margin:0in;font-size:11pt\"><span style=\"color:rgb(34,34,34);font-size:small\">To Your Massive Success,</span><br></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-family:&quot;Times New Roman&quot;,serif;color:rgb(118,113,113)\"> </span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"color:rgb(118,113,113)\"></span><span style=\"color:rgb(118,113,113)\"></span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-size:16pt;font-family:&quot;Times New Roman&quot;,serif;color:rgb(118,113,113)\">Geoffrey Daniel Phelan,</span></p>\n<p style=\"margin:0in;font-family:Calibri,sans-serif\"><span style=\"color:rgb(118,113,113)\"><font size=\"4\">Growth Solutions Architect | CEO</font></span></p>\n<p style=\"margin:0in;font-family:Calibri,sans-serif\"><span style=\"color:rgb(118,113,113)\"><font size=\"4\">Peak Performance Hackers c/o</font></span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-size:12.5pt;font-family:&quot;Times New Roman&quot;,serif;color:rgb(118,113,113)\">Greenville Dig<u>IT</u>al Marketing Agency</span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><b style=\"color:rgb(34,34,34)\"><span style=\"font-size:12pt;font-family:&quot;Book Antiqua&quot;,serif;color:rgb(118,113,113)\">Office Line</span></b><b style=\"color:rgb(34,34,34)\"><span style=\"font-size:12pt;color:rgb(118,113,113)\">:</span></b><span style=\"font-size:12pt;color:rgb(118,113,113)\"> +1 864-528-3382</span><br></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-size:12.5pt;font-family:&quot;Times New Roman&quot;,serif;color:rgb(118,113,113)\"> </span><span style=\"color:rgb(118,113,113);font-size:12pt\"> </span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-size:12pt;font-family:HelveticaNeue;color:rgb(33,33,33)\"> </span><b style=\"font-size:11pt\"><i><u><span style=\"font-size:9pt;font-family:HelveticaNeue;color:rgb(166,166,166)\">CONFIDENTIALITY </span></u></i></b><i style=\"font-size:11pt\"><span style=\"font-size:9pt;font-family:HelveticaNeue;color:rgb(166,166,166)\"> | This message is intended solely for the recipients addressed and may contain privileged, confidential or proprietary business information owned or otherwise protected from unauthorized dissemination without our expressed consent. If you\u2019ve received this message in error, notify the sender and delete the correspondence.</span></i></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><span style=\"font-size:12pt;font-family:HelveticaNeue;color:rgb(33,33,33)\"> </span></p>\n<p style=\"margin:0in;font-size:11pt;font-family:Calibri,sans-serif\"><b><i><span style=\"font-size:10pt;font-family:HelveticaNeue;color:rgb(166,166,166)\">Please excuse any grammatical errors caused on my mobile device.</span></i></b></p>\n</div></div></div>\n</div>",
+    "answer": "<p class=\"no-margin\">Hi Geoffrey,  i see that upload has started.  but all errored so far</p>"
+  },
+  {
+    "question": "<p>Hi</p>",
+    "answer": "<p class=\"no-margin\">Hi David, how can we help?</p>"
+  },
+  {
+    "question": "<p>Hi, can I ask you a favor, can you please pause all referral payouts for this year? then I'll let you know once we can resume payouts. thanks</p>",
+    "answer": "<p class=\"no-margin\">yaro</p>"
+  },
+  {
+    "question": "<p>Hey! I need to get the password </p>",
+    "answer": "<p class=\"no-margin\">Hi Oleksandr, you can create a password for your account by using \"Forgot password\" function on login screen page</p>"
+  },
+  {
+    "question": "<p>The endpoint only returns blank body. No email for some reason ever has a body field</p>",
+    "answer": "<p class=\"no-margin\">Which endpoint and which email id? What's the param you passed</p>"
+  },
+  {
+    "question": "<div dir=\"ltr\">Hi Pipl.<div><br></div><div>Ai Replier seems amazing, but is it not possible to use variables yet?<br><br>Best,</div><div>Isaac</div></div>",
+    "answer": "<p class=\"no-margin\">how and where do you want to use variables?<br>variables can be used in templates and manual reply</p>"
+  },
+  {
+    "question": "<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1327810819/534dbc2630201ad8c854fa3bc6f1/image.png?expires=1748160900&amp;signature=0e2feabbd57cb9d19535a387d31f9ee61c1770642e37aa76a9ca2f31b5c53b3a&amp;req=dSMlEcF%2FnYleUPMW1HO4zdixshxwSqc4UcKY9T%2BkqhTWeLmsZ9%2B6x5gA2n1Q%0ANbYrTAOpxOJ0y1Fom8k%3D%0A\"></div>",
+    "answer": "<p class=\"no-margin\">we will still look into this, thanks</p>"
+  },
+  {
+    "question": "<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1381978604/0e3a6d649c8835376ce02f9d8a7a/image.png?expires=1748160900&amp;signature=ffa1b53cfc6c73a1a8d6b9d28193f83e598744d5fcb8fbe028395603a6411d26&amp;req=dSMvF8B5lYdfXfMW1HO4zdWEd8HialGc6kYTmpLRVUqFDaw1SxI51TleK4c6%0ASODecb4HJ7P8WMPWmpM%3D%0A\"></div>",
+    "answer": "<p class=\"no-margin\">Hi Leonardo, that definitely should not be happening. </p>"
+  },
+  {
+    "question": "<p>make sure to put firstnames unde firstname and lastnames under lastname, \n<br>please.</p>\n\n<p>Last time the full names of accounts were added under firstname box.</p>\n\n<p>Thanks,\n<br>Syed.</p>",
+    "answer": "<p class=\"no-margin\">Sure, upload started </p>"
+  },
+  {
+    "question": "<p>Hey guys, we got our emails from superwave, Can you guys add them for us?</p>",
+    "answer": "<p class=\"no-margin\">sure please send to <a href=\"mailto:support@pipl.ai\" rel=\"nofollow noopener noreferrer\" target=\"_blank\" class=\"intercom-content-link\">support@pipl.ai</a> and we will take care of it</p>"
+  },
+  {
+    "question": "<p>why is my campaign not sending emails </p>",
+    "answer": "<p class=\"no-margin\">There's a difference between UTC EST time and time in New York - you might want to set this timezone instead <br><br>\u200b</p>\n<div class=\"intercom-container\"><img src=\"https://downloads.intercomcdn.com/i/o/ssfxxqbr/1537677977/74661e09192491af4ba4f96badc9/image.png?expires=1748160900&amp;signature=19e6812638fa87f4887c28800ac98b21a0779f106589d70ed9574660e71a8758&amp;req=dSUkEc95mohYXvMW1HO4zTZyA43e1Fd%2FGHsNaHEdDPprGy0cKXQXmaw%2BPy8P%0A07Zz9LbPlmHQlsuEiw4%3D%0A\"></div>"
+  },
+  {
+    "question": "<p>hi why are none of my emails working</p>",
+    "answer": "<p class=\"no-margin\">Hi Radomir, what does the error message say when you mouse it over? </p>"
+  },
+  {
+    "question": "<p>Hi</p>",
+    "answer": "<p class=\"no-margin\">Hi Greg, we\u2019re currently facing an issue with the lead lists database due to some internal logic update that our database provider was not compatible with. </p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">Some lead lists might be affected unfortunately, and it seems that\u2019s the case for your account. </p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">Your main database of leads that are active in your campaigns are not affected and function normally. </p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">We\u2019re working with Azure to get the data back right now. </p>\n<p class=\"no-margin\"></p>\n<p class=\"no-margin\">Sorry for the inconvenience.</p>"
+  },
+  {
+    "question": "<p>Hi, can you please check if <a href=\"mailto:aaron@tractionagency.io\" rel=\"nofollow\" target=\"_blank\" class=\"intercom-content-link\">aaron@tractionagency.io</a> is added under my affiliate account?</p>\n<p>Thanks!</p>",
+    "answer": "<p class=\"no-margin\">Hi Tal, it's not. we can attribute this purchase manually </p>"
+  },
+  {
+    "question": "<p>where are my leads</p>",
+    "answer": "<p class=\"no-margin\">how do u mean</p>"
+  },
+  {
+    "question": "<div dir=\"ltr\"><br></div>",
+    "answer": "<p class=\"no-margin\">Sure, upload started </p>"
+  },
+  {
+    "question": "<p>Hey there, back in the days I asked you to hardcode a forwarding rule in my account to <a href=\"mailto:ricardo@fidforward.com\" rel=\"nofollow\" target=\"_blank\" class=\"intercom-content-link\">ricardo@fidforward.com</a>. Can we remove that now?</p>",
+    "answer": "<p class=\"no-margin\">ok</p>"
+  },
+  {
+    "question": "<p>Can you add these two csv's worth of microsoft accounts into my plusvibe dashboard?</p>",
+    "answer": "<p class=\"no-margin\">Hi Josiah, can you please send CSV files to <a href=\"mailto:support@plusvibe.ai\" rel=\"nofollow noopener noreferrer\" target=\"_blank\" class=\"intercom-content-link\">support@plusvibe.ai</a> ? </p>"
+  },
+  {
+    "question": "<p>campaign level limit ramp up would be cool</p>",
+    "answer": "<p class=\"no-margin\">we already have email account-level ramup-up.  Further campaign limit ramp up would be overdone</p>"
+  },
+  {
+    "question": "<p>Hello - I initially had the \u201cSend to Risky\u201d setting turned off. But I turned it on a several weeks ago. However, the risky emails are still showing a status of \u201cskipped\u201d. How can this be accomplished?</p><div dir=\"auto\"><br></div><div dir=\"auto\">See 3 screenshots below: </div><div dir=\"auto\">\n<div><img src=\"https://pipl-software-inc.intercom-attachments-3.com/i/o/ssfxxqbr/1537260634/948ec74d88839ad4aade295d26dc/99FA0B46-977E-4143-BE2E-A1897B3F6A2F.png?expires=1781784000&amp;signature=11f2ba5683da84349c361ea309915b1cd70e65e3241935da58c086d249b31ead&amp;req=dSUkEct4nYdcXfMU3Xa7h8gICUINkP8NE%2Ft030Yq0Wz8IWE6tcE%3D%0A\" alt=\"\" intercom-upload-id=\"1537260634_948ec74d88839ad4aade295d26dc\"></div>\n<div><img src=\"https://pipl-software-inc.intercom-attachments-3.com/i/o/ssfxxqbr/1537260639/2355302bdb149a79381e3f3c15ad/4DFAC858-AF42-4DFC-AF6F-E3BCA25D026B.jpeg?expires=1781784000&amp;signature=23707756cc5b190417c8473654609574daffc212b1041c59943a81f817199900&amp;req=dSUkEct4nYdcUPMU3Xa7h57TB4ikBmTFhHwolO55ZS26SyEPToY%3D%0A\" alt=\"\" intercom-upload-id=\"1537260639_2355302bdb149a79381e3f3c15ad\"></div>\n<div><img src=\"https://pipl-software-inc.intercom-attachments-3.com/i/o/ssfxxqbr/1537260642/9367252384c69bd89c23907b0f39/E5833603-2A62-4270-A053-558A901CCDCD.png?expires=1781784000&amp;signature=8044e6f570863a69ea7b710ac52e05d61342cea428413bd4f3b7e58295fdfa4f&amp;req=dSUkEct4nYdbW%2FMU3Xa7hzeVkSvfO8DTd8myhs%2BIph1C9992zQ8%3D%0A\" alt=\"\" intercom-upload-id=\"1537260642_9367252384c69bd89c23907b0f39\"></div>\n<br>\n</div><div dir=\"auto\"><br></div><div dir=\"auto\">Nwamaka</div>",
+    "answer": "<p class=\"no-margin\">those that have been skipped will not be re-contacted. You will have to move the skipped leads to another duplicate campaign and re-send them</p>"
+  },
+  {
+    "question": "<p>can I get pre-warmed IDs </p>",
+    "answer": "<p class=\"no-margin\">we dont provide them</p>"
+  }
+]

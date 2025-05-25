@@ -1,91 +1,94 @@
-import os
-import hmac
-import hashlib
-from flask import Flask, request, jsonify, abort
-from dotenv import load_dotenv
-import requests
-import openai
-
-# Load environment variables
-load_dotenv()
-
-INTERCOM_ACCESS_TOKEN = os.getenv('INTERCOM_TOKEN')
-INTERCOM_WEBHOOK_SECRET = os.getenv('INTERCOM_WEBHOOK_SECRET')
-AZURE_OPENAI_ENDPOINT = os.getenv('AZURE_OPENAI_ENDPOINT')
-AZURE_OPENAI_KEY = os.getenv('AZURE_OPENAI_KEY')
-AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-preview')
-DEFAULT_MODEL = os.getenv('DEFAULT_MODEL', 'gpt-4')
-BOT_NAME = os.getenv('BOT_NAME', 'AI Assistant')
-TESTING = True  # Set to False to reply for everyone
-ADMIN_ID = "6876491"
-
-# Set up Azure OpenAI client
-client = openai.AzureOpenAI(
-    api_key=AZURE_OPENAI_KEY,
-    api_version=AZURE_OPENAI_API_VERSION,
-    azure_endpoint=AZURE_OPENAI_ENDPOINT
-)
+from flask import Flask, request, jsonify
+import config
+import db
 
 app = Flask(__name__)
 
 @app.route('/webhook/', methods=['POST'])
 def webhook():
     data = request.json
-    print('Received Intercom webhook payload:')
-    print(data)
-    # Extract email
+    topic = data.get('topic', 'unknown')
+    
+    print(f'Received Intercom webhook - Topic: {topic}')
+    
     try:
-        email = data['data']['item']['source']['author']['email']
+        if topic in ['conversation.user.created', 'conversation.user.replied']:
+            handle_user_message(data)
+        elif topic == 'conversation.admin.replied':
+            handle_admin_reply(data)
+        elif topic == 'conversation.admin.closed':
+            handle_conversation_closed(data)
+        else:
+            print(f'Unhandled topic: {topic}')
+            
     except Exception as e:
-        print('Could not extract email:', e)
-        email = None
-    print(f"TESTING flag: {TESTING}")
-    print(f"Extracted email: {email}")
-    should_reply = False
-    if TESTING:
-        if email == 'kmswong@gmail.com':
-            should_reply = True
-    else:
-        should_reply = True
-    if should_reply:
-        print("Triggering Intercom auto-reply...")
-        conversation_id = data['data']['item']['id']
-        reply_body = '<p>Test reply with image:</p><img src="https://app.pipl.ai/v2/images/logo.png" alt="logo" style="max-width:200px;" />'
-        send_intercom_reply(conversation_id, reply_body)
-    else:
-        print("Auto-reply not triggered (check TESTING flag and email match).")
+        print(f'Error processing webhook: {e}')
+        
     return jsonify({'status': 'ok'})
 
-def get_ai_reply(user_message):
-    # You may want to adjust the deployment/model name as per your Azure setup
-    response = client.chat.completions.create(
-        model=DEFAULT_MODEL,
-        messages=[
-            {"role": "system", "content": f"You are {BOT_NAME}, an AI assistant."},
-            {"role": "user", "content": user_message}
-        ]
-    )
-    return response.choices[0].message.content.strip()
+def handle_user_message(data):
+    """Handle user created/replied events"""
+    try:
+        conversation_id = data['data']['item']['id']
+        user_id = data['data']['item']['source']['author']['id']
+        email = data['data']['item']['source']['author'].get('email', '')
+        
+        print(f'DEBUG: conversation_id={conversation_id}, user_id={user_id}, email="{email}"')
+        print(f'User message in conversation {conversation_id} from {email}')
+        
+        # Check if we should process this (testing mode)
+        should_process = True
+        if config.TESTING and email != config.TEST_EMAIL:
+            should_process = False
+            print(f'Skipping - testing mode enabled, email {email} != {config.TEST_EMAIL}')
+        
+        if should_process:
+            # Check if bot is paused for this conversation
+            existing_conv = db.intercom_conversations.find_one({"conversation_id": conversation_id})
+            if existing_conv and existing_conv.get('bot_paused', False):
+                print(f'Bot is paused for conversation {conversation_id} - ignoring user message')
+                return
+            
+            # Upsert conversation document
+            db.upsert_conversation(conversation_id, user_id, email)
+            print(f'Upserted conversation {conversation_id} from {email} - pending_reply: True')
+        
+    except Exception as e:
+        print(f'Error handling user message: {e}')
 
-def send_intercom_reply(conversation_id, message):
-    url = f'https://api.intercom.io/conversations/{conversation_id}/reply'
-    headers = {
-        'Authorization': f'Bearer {INTERCOM_ACCESS_TOKEN}',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-    print('DEBUG: Using Intercom access token:', INTERCOM_ACCESS_TOKEN)  # REMOVE AFTER DEBUGGING
-    print('DEBUG: Headers sent to Intercom:', headers)  # REMOVE AFTER DEBUGGING
-    payload = {
-        "type": "admin",
-        "admin_id": ADMIN_ID,
-        "message_type": "comment",
-        "body": message
-    }
-    response = requests.post(url, headers=headers, json=payload)
-    print('Intercom API response:', response.status_code, response.text)
-    if not response.ok:
-        print(f"Failed to send reply: {response.text}")
+def handle_admin_reply(data):
+    """Handle admin reply events"""
+    try:
+        conversation_id = data['data']['item']['id']
+        admin_id = data['data']['item']['conversation_parts']['conversation_parts'][0]['author']['id']
+        
+        print(f'Admin reply in conversation {conversation_id} from admin {admin_id}')
+        
+        # If admin is NOT the bot, pause the bot
+        if str(admin_id) != str(config.BOT_ADMIN_ID):
+            db.pause_bot_for_conversation(conversation_id)
+            print(f'Human admin {admin_id} replied - bot paused for conversation {conversation_id}')
+        else:
+            print(f'Bot admin {admin_id} replied - no action needed')
+            
+    except Exception as e:
+        print(f'Error handling admin reply: {e}')
+
+def handle_conversation_closed(data):
+    """Handle conversation closed events"""
+    try:
+        conversation_id = data['data']['item']['id']
+        
+        print(f'Conversation {conversation_id} closed - resetting flags')
+        db.reset_conversation_flags(conversation_id)
+        
+    except Exception as e:
+        print(f'Error handling conversation closed: {e}')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5003)), debug=os.getenv('FLASK_DEBUG', 'False') == 'True') 
+    print("Starting Intercom webhook server...")
+    print(f"Bot Admin ID: {config.BOT_ADMIN_ID}")
+    print(f"Testing mode: {config.TESTING}")
+    print(f"Port: {config.FLASK_PORT}")
+    
+    app.run(host='0.0.0.0', port=config.FLASK_PORT, debug=config.FLASK_DEBUG) 

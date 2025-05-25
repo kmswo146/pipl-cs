@@ -26,3 +26,7 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db 
 .cursor/
+conversations_for_llm.json
+conversations.json
+__pycache__/
+*.pyc

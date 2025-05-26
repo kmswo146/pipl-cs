@@ -65,7 +65,7 @@ def worker_loop():
         try:
             # Calculate random delay for this iteration
             delay_seconds = random.randint(config.DELAY_MIN_SECONDS, config.DELAY_MAX_SECONDS)
-            print(f"Using {delay_seconds}s delay for this check...")
+            #print(f"Using {delay_seconds}s delay for this check...")
             
             # Get conversations that need replies
             pending_conversations = db.get_pending_conversations(delay_seconds)
@@ -82,7 +82,7 @@ def worker_loop():
                 print("No pending conversations found")
             
             # Wait before next scan
-            print(f"Sleeping for 10 seconds...")
+            #print(f"Sleeping for 10 seconds...")
             time.sleep(10)
             
         except KeyboardInterrupt:

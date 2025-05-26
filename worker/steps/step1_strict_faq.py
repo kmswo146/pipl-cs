@@ -1,5 +1,6 @@
 import sys
 import os
+import urllib.parse
 
 # Add parent directory to path so we can import modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -10,12 +11,61 @@ from bson import ObjectId
 from openai_utils import call_openai_with_retry
 
 # Sticky prompt for this step
-STICKY_PROMPT = """You are a human customer support that follows strict rule (never disclose that you're an AI) for PlusVibe.ai (a cold email automation SaaS). Determine if the customer question EXACTLY matches one of the predefined FAQ questions.
+STICKY_PROMPT = """You are a human customer support that follows strict rule (never disclose that you're an AI) for PlusVibe.ai (a cold email automation SaaS, formerly called pipl.ai). Determine if the customer question EXACTLY matches one of the predefined FAQ questions.
 
 Be EXTREMELY strict - only return a match if you are 100% confident the customer is asking the exact same thing.
 
 Return JSON format:
 {"num": [FAQ number if confident, otherwise 0], "confidence": [0.0 to 1.0]}"""
+
+def _decode_faq_answer(answer):
+    """Decode URL-encoded content in FAQ answers"""
+    if not answer:
+        return answer
+    
+    # Decode URL encoding (handles cases like %7B%7B -> {{)
+    decoded = urllib.parse.unquote(answer)
+    
+    # Handle double encoding if it exists
+    if '%' in decoded:
+        try:
+            double_decoded = urllib.parse.unquote(decoded)
+            # Only use double decoded if it actually changed something
+            if double_decoded != decoded:
+                print(f"DEBUG: Double URL encoding detected and fixed")
+                decoded = double_decoded
+        except:
+            pass  # If double decoding fails, stick with single decode
+    
+    # WORKAROUND: Convert problematic characters to HTML entities to prevent Intercom from URL-encoding them
+    # Focus on the main issue: curly braces, and be conservative with others
+    
+    # Store original for comparison
+    original = decoded
+    workaround = decoded
+    
+    # Handle the main issue: curly braces (this is what we know is problematic)
+    workaround = workaround.replace('{{', '&#123;&#123;')  # { -> &#123;
+    workaround = workaround.replace('}}', '&#125;&#125;')  # } -> &#125;
+    
+    # Only handle other characters if they're not part of URLs or existing HTML entities
+    import re
+    
+    # Handle standalone & that are not part of HTML entities or URLs
+    # Only replace & that are followed by a space or end of string, not part of entities or URLs
+    workaround = re.sub(r'&(?=\s|$)', '&#38;', workaround)
+    
+    # Handle quotes that might be problematic (but preserve HTML attributes)
+    # Only replace quotes that are not inside HTML tags
+    workaround = re.sub(r'"(?![^<]*>)', '&#34;', workaround)
+    workaround = re.sub(r"'(?![^<]*>)", '&#39;', workaround)
+    
+    if workaround != original:
+        print(f"DEBUG: Applied HTML entity workaround for special characters")
+        print(f"DEBUG: Before: {original}")
+        print(f"DEBUG: After: {workaround}")
+    
+    return workaround
 
 def strict_faq_match(user_message, conversation_history=None):
     """
@@ -95,10 +145,17 @@ Return JSON with FAQ number and confidence."""}
             # Get the FAQ answer by number (1-indexed)
             if faq_number <= len(faq_entries):
                 faq_doc = faq_entries[faq_number - 1]  # Convert to 0-indexed
-                # Return the raw answer as-is (don't clean HTML for FAQ answers)
+                # Get the raw answer and decode any URL encoding
                 raw_answer = faq_doc['answer']
+                
+                # Decode URL-encoded content (e.g., %7B%7B becomes {{)
+                decoded_answer = _decode_faq_answer(raw_answer)
+                
                 print(f"DEBUG: High confidence match found ({confidence}) - returning predefined answer")
-                return confidence, raw_answer
+                print(f"DEBUG: Original answer: {raw_answer}")
+                print(f"DEBUG: Decoded answer: {decoded_answer}")
+                
+                return confidence, decoded_answer
         
         print(f"DEBUG: No high confidence match (confidence: {confidence})")
         return confidence, None

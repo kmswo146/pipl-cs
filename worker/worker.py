@@ -1,6 +1,7 @@
 import time
 import sys
 import os
+import random
 
 # Add parent directory to path so we can import modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -47,21 +48,27 @@ def handle_conversation(conv_doc):
             else:
                 print(f"Failed to send reply for conversation {conversation_id}")
         else:
-            print(f"No reply generated for conversation {conversation_id}")
+            print(f"No reply generated for conversation {conversation_id} - marking as processed")
+            # Mark as processed even when no reply is sent to avoid infinite loop
+            db.mark_bot_replied(conversation_id)
             
     except Exception as e:
         print(f"Error handling conversation {conversation_id}: {e}")
 
 def worker_loop():
     """Main worker loop - runs continuously"""
-    print(f"Starting bot worker with {config.DELAY_SECONDS}s delay...")
+    print(f"Starting bot worker with {config.DELAY_MIN_SECONDS}-{config.DELAY_MAX_SECONDS}s random delay...")
     print(f"Bot Admin ID: {config.BOT_ADMIN_ID}")
     print(f"Testing mode: {config.TESTING}")
     
     while True:
         try:
+            # Calculate random delay for this iteration
+            delay_seconds = random.randint(config.DELAY_MIN_SECONDS, config.DELAY_MAX_SECONDS)
+            print(f"Using {delay_seconds}s delay for this check...")
+            
             # Get conversations that need replies
-            pending_conversations = db.get_pending_conversations(config.DELAY_SECONDS)
+            pending_conversations = db.get_pending_conversations(delay_seconds)
             
             if pending_conversations:
                 print(f"Found {len(pending_conversations)} conversations needing replies")

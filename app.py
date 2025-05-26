@@ -36,22 +36,19 @@ def handle_user_message(data):
         print(f'DEBUG: conversation_id={conversation_id}, user_id={user_id}, email="{email}"')
         print(f'User message in conversation {conversation_id} from {email}')
         
-        # Check if we should process this (testing mode)
-        should_process = True
-        if config.TESTING and email != config.TEST_EMAIL:
-            should_process = False
-            print(f'Skipping - testing mode enabled, email {email} != {config.TEST_EMAIL}')
+        # NOTE: Testing flag is now handled in reply_engine for step 2+
+        # Steps 0-1 will run for all users regardless of testing flag
+        print(f'Processing conversation (Steps 0-1 will run for all users, Step 2+ respects testing flag)')
         
-        if should_process:
-            # Check if bot is paused for this conversation
-            existing_conv = db.intercom_conversations.find_one({"conversation_id": conversation_id})
-            if existing_conv and existing_conv.get('bot_paused', False):
-                print(f'Bot is paused for conversation {conversation_id} - ignoring user message')
-                return
-            
-            # Upsert conversation document
-            db.upsert_conversation(conversation_id, user_id, email)
-            print(f'Upserted conversation {conversation_id} from {email} - pending_reply: True')
+        # Check if bot is paused for this conversation
+        existing_conv = db.intercom_conversations.find_one({"conversation_id": conversation_id})
+        if existing_conv and existing_conv.get('bot_paused', False):
+            print(f'Bot is paused for conversation {conversation_id} - ignoring user message')
+            return
+        
+        # Upsert conversation document
+        db.upsert_conversation(conversation_id, user_id, email)
+        print(f'Upserted conversation {conversation_id} from {email} - pending_reply: True')
         
     except Exception as e:
         print(f'Error handling user message: {e}')

@@ -6,7 +6,8 @@ load_dotenv()
 
 # Bot Configuration
 BOT_ADMIN_ID = 8393893      # dedicated Intercom teammate used by the bot
-DELAY_SECONDS = 5          # wait this long after the LAST user message
+DELAY_MIN_SECONDS = 0      # minimum delay after the LAST user message
+DELAY_MAX_SECONDS = 1     # maximum delay after the LAST user message
 
 # Intercom API
 INTERCOM_ACCESS_TOKEN = os.getenv('INTERCOM_TOKEN')

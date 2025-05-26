@@ -14,7 +14,7 @@ This bot follows a clean separation of concerns with two main components:
 
 ### 2. Worker Process (`worker/worker.py`)
 - Scans for pending conversations every 10 seconds
-- Processes conversations after a configurable delay (60s default)
+- Processes conversations after a random delay (60-120s default)
 - Generates intelligent replies using AI
 - Sends replies via Intercom API
 
@@ -23,7 +23,7 @@ This bot follows a clean separation of concerns with two main components:
 ### Smart Human Handoff
 - **Bot Pause**: When a human admin replies, the bot automatically pauses for that conversation
 - **Auto Resume**: Bot resumes when conversation is closed and user sends new message
-- **Testing Mode**: Only responds to specific test email during development
+- **Testing Mode**: Steps 0-1 run for all users, Step 2+ only for test email during development
 
 ### Intelligent Reply Engine
 - **Intent Classification**: Categorizes user messages (password reset, account queries, general support)
@@ -33,7 +33,7 @@ This bot follows a clean separation of concerns with two main components:
 
 ### Robust State Management
 - **MongoDB Integration**: Tracks conversation state, timing, and bot status
-- **Delay Logic**: Waits 60 seconds after last user message before replying
+- **Delay Logic**: Waits 3-8 seconds (random) after last user message before replying
 - **Conflict Prevention**: Prevents bot from interfering with human agents
 
 ## File Structure
@@ -134,7 +134,7 @@ Subscribe to these topics:
 1. **Query**: Find conversations where:
    - `pending_reply: true`
    - `bot_paused: false`
-   - `last_user_ts` > 60 seconds ago
+   - `last_user_ts` > random(3-8) seconds ago
 
 2. **Process**: For each conversation:
    - Fetch full history from Intercom
@@ -147,8 +147,9 @@ Subscribe to these topics:
 ## Constants
 
 - `BOT_ADMIN_ID = 8393893` - Dedicated Intercom admin account for bot
-- `DELAY_SECONDS = 60` - Wait time after last user message
-- Testing mode only responds to `kmswong@gmail.com`
+- `DELAY_MIN_SECONDS = 60` - Minimum wait time after last user message
+- `DELAY_MAX_SECONDS = 120` - Maximum wait time after last user message
+- Testing mode: Steps 0-1 run for all users, Step 2+ only for `kmswong@gmail.com`
 
 ## Human Override
 

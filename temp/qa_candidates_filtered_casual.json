@@ -1,0 +1,1379 @@
+{
+  "summary": {
+    "total_conversations": 1723,
+    "suitable_conversations": 466,
+    "unique_qa_pairs": 123,
+    "generated_at": "2025-05-25T18:04:36.124268"
+  },
+  "qa_candidates": [
+    {
+      "question": "What are the mailbox limits and pricing for adding extra mailboxes to my business plan?",
+      "answer": "Hey! For business plan users, there’s a fair usage policy that covers up to 1000 mailboxes. If you need more than that, you can add extra slots—each extra 1000 mailboxes costs $50 a month. So, if you want 2000 more mailboxes, it’d be $100 a month. The pricing’s pretty straightforward, and our support team can help set everything up and update your billing with your saved payment method. Let us know if you want to expand!",
+      "topic": "Account limits and pricing",
+      "count": 39,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469059441800",
+        "215469083518493",
+        "215469047556809",
+        "215468996691381",
+        "215468957628613",
+        "215468992115466",
+        "215468981225856",
+        "215468869558191",
+        "215468921679293",
+        "215468907517886",
+        "215468882689158",
+        "215468897733426",
+        "215468894722743",
+        "215468864798986",
+        "16135",
+        "16104",
+        "16080",
+        "16058",
+        "15939",
+        "15934",
+        "16020",
+        "15932",
+        "15898",
+        "15894",
+        "15714",
+        "15862",
+        "15740",
+        "15689",
+        "15569",
+        "15548",
+        "15372",
+        "15301",
+        "15295",
+        "15321",
+        "15311",
+        "15242",
+        "15193",
+        "15145",
+        "15093"
+      ],
+      "similar_questions": [
+        "Why are not all leads in my active email campaign being contacted?",
+        "How many email inboxes and domains do I need to send 3-5 emails per month to 12,000 contacts, and what are the associated costs?",
+        "What are the costs for domains, mailboxes, and workspaces when using your DFY (Done-For-You) Google/email service, and do you handle domain purchasing and mailbox setup?",
+        "Can I create an additional workspace for my account?",
+        "Why am I unable to connect more inboxes to my free trial account?",
+        "Is there a limit to the number of email inboxes I can connect in a workspace, and does this limit differ between free trial and paid accounts?",
+        "What is the actual limit on the number of email accounts I can connect with the Personal Plan, and is there truly an 'unlimited' option?",
+        "What is the pricing and process for setting up a new domain with email inboxes using the Done-For-You Subscriptions service?",
+        "What is the estimated cost per additional workspace?",
+        "How do I assign specific campaigns to specific clients, and what are the limits and pricing for client workspaces?",
+        "What is the pricing for additional workspaces?",
+        "How many workspaces are included in the business plan, and do additional workspaces increase contact or email sending limits?",
+        "Why am I unable to import more inboxes when my plan says it allows unlimited inboxes?",
+        "What are the account upload limits for personal and business plans, and can I increase the limit by adding more workspaces?",
+        "What is the inbox limit for the personal plan, and how can I connect more email accounts if I exceed it?",
+        "What are the email sending limits and lead upload limits for the $77 plan, and are there options for higher volumes?",
+        "Why am I unable to add more than three email accounts to Pipl AI?",
+        "Why am I unable to send emails and receiving a message about reaching my monthly limit?",
+        "What is the monthly email sending limit, and how can I increase it if I reach the limit?",
+        "What are the account limits for connected accounts on Pipl's free trial and paid plans?",
+        "Did the sending limits for the personal plan change?",
+        "How can I create a separate dashboard or workspace for a client, and what are the requirements and costs involved?",
+        "How many email inboxes do I need to send 25,000 emails per month using Google Workspace or Microsoft 365, and what are the recommended sending limits per inbox?",
+        "Why is my email campaign only sending 250 emails per day in total, even though I have multiple sender accounts and have set higher daily limits?",
+        "How do workspace limits and pricing work, and can I increase my monthly email sending capacity by adding more workspaces?",
+        "How can I increase my monthly email sending limit?",
+        "How can I add a new workspace or account at the lowest cost, and what plan do I need to purchase?",
+        "What is the pricing for additional campaign leads space and extra workspaces?",
+        "How much does it cost to purchase additional campaign leads?",
+        "How much does it cost to purchase additional email list credits?",
+        "Can I create multiple email inboxes using my own custom domain (e.g., all emails ending with @mycompany.com) through your service, and is there a limit to how many I can purchase or connect?"
+      ],
+      "created_at": "2025-05-25T17:03:24.968593"
+    },
+    {
+      "question": "How should I ramp up sending emails from newly warmed Google accounts to ensure good deliverability?",
+      "answer": "When you start sending emails from new Google accounts, it’s a good idea to keep it super low at first—like just 1 to 3 emails a day for the first week. After that, you can slowly bump it up to about 5 to 8 emails per day per account. For the warmup process, try to stick to around 10 warmup emails a day, and maybe mix up the number a bit so it looks more natural. Once your first week’s done, you can turn on automatic ramp-up in your inbox settings so your sending volume goes up safely.",
+      "topic": "Email Deliverability / Warmup Best Practices",
+      "count": 16,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469051315171",
+        "16128",
+        "215469036727181",
+        "215469045676912",
+        "15739",
+        "215468969612054",
+        "15923",
+        "15949",
+        "16094",
+        "16081",
+        "15870",
+        "15617",
+        "15754",
+        "15503",
+        "15386",
+        "15142"
+      ],
+      "similar_questions": [
+        "How long should I keep my email accounts in warmup if they are landing in the spam folder, and what warmup health score should I aim for before resuming campaigns?",
+        "What is the recommended daily warm-up limit if I want to send 20-30 cold emails per inbox?",
+        "Why did my email accounts get banned for sending less than 200 emails per day, and is there a way to send higher volumes without getting banned?",
+        "What is the recommended warmup period for new domains before sending real campaign emails?",
+        "If I switch to your email service from another provider, can I start sending emails immediately, or do I need to warm up my account first?",
+        "How long does it take to warm up a new email domain, and is warming up the email address different from warming up the domain?",
+        "What should I do if my email campaigns are not getting responses and I suspect deliverability issues, such as emails landing in spam?",
+        "What is the recommended daily email sending volume to optimize deliverability and increase the likelihood of receiving auto-responses?",
+        "What is the recommended daily sending limit per email account for cold email campaigns, and can this limit be increased?",
+        "Why are my newly created email accounts' messages landing in spam, and what can I do about it?",
+        "How many cold emails can I send per day per email account, and what are the recommended limits to avoid deliverability issues?",
+        "When enabling 'email ramp up' for new inboxes, does the daily sending limit increase start immediately or when I launch the first campaign with that inbox?",
+        "How long should I warm up my new email inboxes after setting up SPF, DKIM, and DMARC authentication before starting email campaigns?",
+        "Is it safe to start sending real campaign emails while my email accounts are still being warmed up, and if so, how many emails should I send per day?",
+        "How do I know when my email inboxes are fully warmed up and ready to send campaign emails?"
+      ],
+      "created_at": "2025-05-25T17:04:49.889715"
+    },
+    {
+      "question": "How can I set up fallback values for variables in my email campaigns if a variable is missing?",
+      "answer": "You can set up fallback values for variables using our spintax feature. If a variable’s missing, you can add a default value in your email template that’ll show up instead. For step-by-step instructions and some examples, check out our spintax guide here: https://help.plusvibe.ai/en/articles/8606174-spintax-guide.",
+      "topic": "Email Campaigns / Variable Fallbacks",
+      "count": 14,
+      "quality_score": 9,
+      "conversation_ids": [
+        "16107",
+        "215468890817849",
+        "215468906601335",
+        "215468965642314",
+        "215468937157611",
+        "215468900640170",
+        "215468879640716",
+        "15756",
+        "15855",
+        "15653",
+        "15531",
+        "15380",
+        "15208",
+        "15210"
+      ],
+      "similar_questions": [
+        "Can I add spintax (randomized text) in my email signature, or should it be included in the email body? Will it work if I add it in the signature field in account settings?",
+        "How can I use a fallback in spintax or Liquid syntax to display a different greeting if the city variable is missing?",
+        "If some rows are missing input data, will AI-generated results still appear for the other rows?",
+        "How do I use spintax in my email sequences?",
+        "Why is my Spintax not working correctly and showing curly brackets in my emails? What is the correct syntax for using Spintax on your platform?",
+        "Can I manually create spintax in emails, such as using {{random|Hi,|Hello,|Good morning,}} for greetings?",
+        "Do you support Spintax?",
+        "How can I set up spintax or find information about using shortcuts in the email campaign platform?",
+        "Is there a way to set a default fallback value for the {{company_name}} variable in emails when a contact does not have a company name?",
+        "How can I use variable placeholders in reply snippets so that recipient names and sender names are automatically inserted?",
+        "How can I use fallback values for variables like first_name within spintax expressions, since the fallback function doesn't work inside spintax?",
+        "Can I use variables like {{company_name}} in reply templates so that they automatically populate with the lead's information when I use the template?",
+        "How does the {{state}} variable work, and how should I use it in my campaigns?"
+      ],
+      "created_at": "2025-05-25T17:03:32.940410"
+    },
+    {
+      "question": "How can I check my contact or lead limits and usage in my account?",
+      "answer": "Just click your profile icon in the top right corner of your dashboard, and you'll see your contact or lead limits and how many you've used so far.",
+      "topic": "Account Limits and Usage",
+      "count": 14,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469091488344",
+        "215469009779053",
+        "215468907865347",
+        "15996",
+        "15853",
+        "15682",
+        "15607",
+        "15478",
+        "15458",
+        "15460",
+        "15261",
+        "15226",
+        "15162",
+        "15066"
+      ],
+      "similar_questions": [
+        "How can I see how many times I have contacted a specific email address or prospect?",
+        "How can I manage and delete leads in bulk when I reach the maximum allowed leads in my campaign account?",
+        "Why am I unable to send emails from my account, and when will I be able to send emails again?",
+        "Is there a limit to the number of leads I can upload to Pipl based on my subscription plan?",
+        "What should I do if my campaigns have stopped because I've reached my monthly sending limit?",
+        "Does increasing the lead limits on my Pipl account also increase the email sending limits?",
+        "How can I check the last time I emailed a contact?",
+        "How much does it cost to increase both my monthly email sending limit and the number of active leads I can upload?",
+        "What should I do if I reach the lead limit while creating a new campaign?",
+        "How many leads should I add for optimal email delivery if I have 10 warmed-up high-quality inboxes, each able to send 20 emails per day, with a maximum of 7 emails sent to each lead per month?",
+        "How many leads can I upload and how many emails can I send during the trial period before purchasing a plan?",
+        "Is it possible to increase the maximum number of active leads allowed in my campaigns, and how much does it cost?",
+        "What is the difference between the monthly email limit and the lead storage limit on my plan?"
+      ],
+      "created_at": "2025-05-25T17:05:31.130329"
+    },
+    {
+      "question": "How can I bulk assign email accounts to a campaign instead of selecting them one by one?",
+      "answer": "First, just create a tag and add the inboxes you want to it. After that, you can use that tag to add or remove all those inboxes from the campaign at once. You’ll find tags in your workspace settings under Tag Manager.",
+      "topic": "Campaign Management / Bulk Actions",
+      "count": 12,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468990305060",
+        "215468998648017",
+        "16220",
+        "15785",
+        "15969",
+        "15687",
+        "15743",
+        "15612",
+        "15486",
+        "15445",
+        "15429",
+        "15127"
+      ],
+      "similar_questions": [
+        "How can I temporarily disable multiple email accounts from sending campaign emails in bulk?",
+        "Is there a way to bulk upload or update email signatures for multiple inboxes?",
+        "How do I add a sender account to my campaign?",
+        "How can I send personalized, individual emails to each lead from my lead list instead of sending bulk emails?",
+        "Is it possible to view the history of tag assignments or see which email accounts were previously tagged with a specific tag before changes were made?",
+        "How do I add a tag to email accounts? When I try to type in a tag and press enter, it says 'undefined' and disappears.",
+        "If a mailbox tag is changed and that tag was used to assign sending accounts to a campaign, will the mailbox be removed from the campaign immediately?",
+        "Why am I getting the error 'mail account must be added before you can start the campaign' in Pipl, even though I have active email accounts?",
+        "How can I quickly exclude multiple fields from being imported when importing leads, without having to mark each field individually?",
+        "How do I add a tag to a campaign?"
+      ],
+      "created_at": "2025-05-25T17:03:56.820198"
+    },
+    {
+      "question": "If I change the 'Send to Risky' setting after some leads have already been skipped, how can I resend emails to those skipped leads?",
+      "answer": "If some leads got skipped before because of the old 'Send to Risky' setting, they won't get emails automatically now. If you want to reach out to those skipped leads again, you can either put them in a new duplicate campaign and send the emails, or just delete and re-upload them to the same campaign. Either way works and will let you contact them with the new setting.",
+      "topic": "Email Campaign Management",
+      "count": 11,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469111032943",
+        "215469087125731",
+        "15795",
+        "15900",
+        "215468951017753",
+        "215468885965553",
+        "215468865206798",
+        "15583",
+        "15195",
+        "15115",
+        "15110"
+      ],
+      "similar_questions": [
+        "How long does the verification process for leads typically take, and what can cause high bounce rates in a campaign?",
+        "When I remove a sender account from a campaign, can I re-assign the leads to another sender account, or will those leads be skipped?",
+        "How can I resend a campaign to the same list but exclude leads who have already replied, bounced, or were skipped?",
+        "How can I identify and handle risky emails in my lead list, and will I see validation results when exporting leads?",
+        "What does the 'send to risky' setting do in my campaign, and will it send emails to catch-all addresses but not to invalid or unknown emails?",
+        "How can I ensure that risky email addresses are ignored in my campaigns, and is this done automatically or do I need to configure it?"
+      ],
+      "created_at": "2025-05-25T17:04:15.018762"
+    },
+    {
+      "question": "What is the difference in email warmup features between the personal and business plans?",
+      "answer": "The business plan gives you some extra warmup features, like linking email chains to a certain industry, setting a warmup schedule that fits when you usually send emails, skipping weekends, picking how often you want replies, and warming up your custom tracking domain and email signatures. You won’t get these options with the personal plan.",
+      "topic": "Plans & Features",
+      "count": 10,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468922524826",
+        "215468905912462",
+        "215468901092446",
+        "215468872723060",
+        "215468864232974",
+        "16126",
+        "15953",
+        "15587",
+        "15549",
+        "15435"
+      ],
+      "similar_questions": [
+        "What is the maximum number of inboxes that can be warmed during the free trial?",
+        "Does editing the warmup settings automatically enable the warmup process for my domains or inboxes?",
+        "What features will I lose if I downgrade my account?",
+        "Does warming up email accounts also warm up the sending IP address, or does it only affect the mailboxes? How does the warm-up process work for different setups like Gsuite and a VPS with a dedicated IP?",
+        "How many warmup emails can be sent per inbox on paid plans, and is this limit per inbox or across all inboxes?",
+        "How can I set the timezone for warmup emails in my email outreach platform?",
+        "Is it recommended to warm up email accounts during a live email campaign?",
+        "Should I continue warming up my mailboxes while running cold email campaigns?"
+      ],
+      "created_at": "2025-05-25T17:15:36.116221"
+    },
+    {
+      "question": "How can I filter out warmup emails in my email account?",
+      "answer": "Warmup emails should automatically go into your pipl.ai folder. If that's not happening, you can filter them yourself by using the unique warmup tag in your email account settings on our platform. Also, double-check that email forwarding is set up right, since that can mess with filtering.",
+      "topic": "Email Filtering / Warmup Emails",
+      "count": 9,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15144",
+        "215468958704761",
+        "215468915673280",
+        "215468906150917",
+        "16139",
+        "15981",
+        "15948",
+        "15329",
+        "15180"
+      ],
+      "similar_questions": [
+        "Why do I see incoming warmup emails in my inbox, and why is warmup a two-way process with both incoming and outgoing emails?",
+        "What does the 'Initial Daily Emails Limit' setting mean, and why might it appear blank?",
+        "How should I manage warmup and campaign email limits per account when running campaigns with Superwave, and do warmup emails continue during campaigns?",
+        "Are warm-up emails counted towards my monthly email sending limit or credits?",
+        "If an email sent as part of the Pipl.ai warm-up process lands in my spam folder, do I need to move it to my inbox, or will this affect my email reputation?",
+        "How long does it take for email warmup to begin after activating the warmup process?"
+      ],
+      "created_at": "2025-05-25T17:08:46.060414"
+    },
+    {
+      "question": "Can I import mailboxes into Pipl.ai using a CSV file, and is there a tutorial available for this process?",
+      "answer": "Yep, you can bulk import non-Google and non-Microsoft mailboxes into Pipl.ai with a CSV file. Just use the bulk import feature on the platform. If you want some step-by-step help, check out the import section on your Pipl.ai dashboard, or just reach out to support and we’ll send you a direct link or walk you through it.",
+      "topic": "Email Import/Integration",
+      "count": 8,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215469110047915",
+        "215468931549531",
+        "16054",
+        "15976",
+        "15622",
+        "15561",
+        "15331",
+        "15257"
+      ],
+      "similar_questions": [
+        "Which CSV export format should I use to upload accounts to Pipl?",
+        "Can I bulk upload SW, Hypertide, and G-Suite domains to your system, and what are the recommended warm-up settings for SW and G-Suite?",
+        "How can I bulk upload mailboxes and update their warmup settings without a Business plan?",
+        "Do you support Mailforge for outreach and email warmup?",
+        "Can I add Google mailboxes to my account using CSV bulk upload?",
+        "How can I connect my GoHighLevel email account to your platform if IMAP information is not provided?",
+        "How can I bulk upload Microsoft Outlook email accounts, and what format should the CSV file be in?"
+      ],
+      "created_at": "2025-05-25T17:04:38.671024"
+    },
+    {
+      "question": "How does the blacklist feature work? If a domain or email is added to the blacklist, will emails still be sent to them in future campaigns?",
+      "answer": "As soon as you add an email address or domain to the blacklist, our system will stop sending them any emails—even if you include them in future campaigns. The system just skips blacklisted addresses automatically, so you don’t have to worry about taking them off your lists yourself.",
+      "topic": "Blacklist functionality / Email campaign management",
+      "count": 8,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15042",
+        "215469004600816",
+        "215468974596054",
+        "215468915591402",
+        "16158",
+        "15497",
+        "15418",
+        "15221"
+      ],
+      "similar_questions": [
+        "How can I mark a contact as unsubscribed so they no longer receive my campaigns?",
+        "How does the blocklist affect sending and receiving emails in Unibox, and will I get an error if I reply to someone on the blocklist?",
+        "How can I automatically track and add 'Not Interested' replies to a separate blocklist or sheet for each client using your software, and what are the limitations on leads and email volume?",
+        "If I add an email domain to the blocklist to prevent sending emails to it, will this also block incoming emails from that domain?",
+        "How can I prevent my current customers from receiving cold emails by cross-referencing my leads list with existing customers in PIPL?"
+      ],
+      "created_at": "2025-05-25T17:06:26.066517"
+    },
+    {
+      "question": "How do I add multiple Gmail or Google Workspace email accounts from the same domain to Plusvibe (formerly pipl.ai)?",
+      "answer": "To add more than one Gmail or Google Workspace account from the same domain to Plusvibe, you'll first need to finish the app connection (OAuth) for your domain in Google Workspace and give it the right permissions. Once that's done, just connect each email account one at a time in Plusvibe by hitting the 'Add new account' button and signing in with the Gmail account you want. Make sure you're logged out of any previous Gmail sessions before you add a new one—this helps you avoid any weird login loops. Just repeat these steps for every user email you want to connect from that domain.",
+      "topic": "Email Account Integration",
+      "count": 8,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469031138305",
+        "215468979361974",
+        "16072",
+        "16044",
+        "15748",
+        "15708",
+        "15098",
+        "15086"
+      ],
+      "similar_questions": [
+        "Can I add more email accounts to the domains provided by your service?",
+        "How do I connect my email account to the platform?",
+        "How do I add my Gmail account as a separate email account using IMAP?",
+        "How can I add multiple domains under one workspace?",
+        "How can I upload multiple Google Workspace (Gsuite) accounts to the platform if bulk upload is not supported?",
+        "How can I transfer Google email accounts to Pipl, and is it possible to bulk import them using Google Admin?"
+      ],
+      "created_at": "2025-05-25T17:08:53.431328"
+    },
+    {
+      "question": "If I import a list of leads that includes contacts already imported into an active campaign, will the system create duplicate leads?",
+      "answer": "Nope, the system won’t create duplicate leads in the same campaign. If you upload a list with leads that are already in the campaign (like if they have the same email), those duplicates will just be skipped and won’t get imported again.",
+      "topic": "Lead Import/Duplicate Management",
+      "count": 8,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468945346638",
+        "215468888200350",
+        "15935",
+        "15479",
+        "15425",
+        "15399",
+        "15114",
+        "15054"
+      ],
+      "similar_questions": [
+        "How can I avoid contacting the same lead or email address when running multiple campaigns that may have overlapping leads?",
+        "How can I safely divide a large paused campaign into multiple smaller campaigns without causing duplicate emails or issues with active leads?",
+        "Can I import leads with duplicate company names as long as their emails are different?",
+        "Can I run two campaigns using the same lead list?",
+        "If I add leads to the blocklist that are already present, will they be added again or cause errors in the automation?"
+      ],
+      "created_at": "2025-05-25T17:14:47.254230"
+    },
+    {
+      "question": "Where can I adjust the email delivery interval settings for my campaign?",
+      "answer": "You set the delivery interval for each inbox separately—it’s not a campaign-wide or general setting. If you want to change how often emails go out, just head to the settings for each inbox you’re using with your campaign and adjust the delivery interval there.",
+      "topic": "Email Campaign Settings",
+      "count": 7,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469081677319",
+        "215468952029806",
+        "215468896606785",
+        "16146",
+        "16143",
+        "16070",
+        "15325"
+      ],
+      "similar_questions": [
+        "Why are emails being sent more frequently than the minimum delay I set for each email account in my campaign?",
+        "What is the minimum interval time setting for sending emails, and is it safe to keep it at 5 minutes?",
+        "How can I configure email sending in Pipl to space out emails at the campaign level, so that emails from multiple Azure inboxes are not sent all at once?",
+        "If I set my Microsoft inbox to send a limited number of emails per day and schedule a campaign within specific hours, will the system automatically spread out the emails, and will campaign-level limits override individual inbox sending limits?"
+      ],
+      "created_at": "2025-05-25T17:06:08.497212"
+    },
+    {
+      "question": "How can I export all leads labeled as 'interested'?",
+      "answer": "Sure! You can just filter your leads by the 'interested' label in the platform. After that, go ahead and export them—every label, including 'interested,' will show up in your CSV file.",
+      "topic": "Lead Management / Exporting Data",
+      "count": 7,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215469006358679",
+        "215468912235207",
+        "16007",
+        "15854",
+        "15879",
+        "15765",
+        "15447"
+      ],
+      "similar_questions": [
+        "Is it possible to export mailboxes to a spreadsheet that includes their tags?",
+        "How can I remove all leads from a campaign that haven't been contacted yet?",
+        "How can I export or download the email addresses of contacts who have replied to my campaigns from Unibox?",
+        "How can I export all non-automated replies from my main inbox in the Mofin loan workspace, and is there a way to automate this process?",
+        "Does the export leads function respect all column filters, such as provider, or only certain filters?",
+        "How can I download the leads list used for a specific campaign?"
+      ],
+      "created_at": "2025-05-25T17:09:33.048116"
+    },
+    {
+      "question": "Why are my email warm-up messages not being sent to Microsoft inboxes?",
+      "answer": "Right now, we’re not sending warm-up emails to Microsoft (Azure) inboxes if there’ve been recent stability issues with them. This is just a temporary step to help protect everyone’s reputation. Once things are sorted out, we’ll lift the restriction.",
+      "topic": "Email Warm-up / Microsoft Inboxes",
+      "count": 7,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468915676526",
+        "215468902312862",
+        "215468898803237",
+        "215468863193149",
+        "15985",
+        "16028",
+        "15826"
+      ],
+      "similar_questions": [
+        "Does it affect the quality of email warming if my domains are temporarily not receiving replies from other inboxes?",
+        "Why are my accounts not sending any warmup emails after being added?",
+        "After enabling Microsoft SMTP authentication for accounts that previously had errors, will the system automatically resolve the errors, or do I need to take additional steps?",
+        "Why are many of my warmup emails bouncing, and what should I do?",
+        "Do I need to take any action if I am receiving bouncebacks from email warmups due to provider issues?",
+        "Does Pipl.ai automatically pause email warmup if emails bounce during the warmup process?"
+      ],
+      "created_at": "2025-05-25T17:16:19.466000"
+    },
+    {
+      "question": "Is it possible to change a lead's status back after marking it as completed?",
+      "answer": "Nope, once you mark a lead as 'completed,' you can't change it back.",
+      "topic": "Lead Management",
+      "count": 7,
+      "quality_score": 8,
+      "conversation_ids": [
+        "16022",
+        "15821",
+        "15764",
+        "15618",
+        "15584",
+        "15395",
+        "15073"
+      ],
+      "similar_questions": [
+        "How can I reintegrate a contact into a campaign after it has been marked as completed?",
+        "How do I archive a campaign, and can I restore or relaunch it later?",
+        "If I change the status of a lead to remove them from a campaign, do I need to change the status back to add them to another campaign?",
+        "How can I stop all emails from being sent to a lead when their status or label changes, such as marking them as 'Meeting Booked'?",
+        "Is it possible to recover a deleted campaign?",
+        "Can I mark a lead as completed in one campaign and then add the same lead to another campaign to start a new sequence?"
+      ],
+      "created_at": "2025-05-25T17:32:23.745678"
+    },
+    {
+      "question": "Is it possible to automatically trigger a follow-up sequence for leads who have replied but haven't responded again after a certain number of days?",
+      "answer": "Right now, this feature isn’t available in Pipl. For now, you’ll have to manually keep track and follow up with leads who haven’t replied after a certain amount of time. The team does see how useful this would be and is looking into adding it in the future, but there’s no set date yet. We’ll let everyone know once it’s ready!",
+      "topic": "Automation/Follow-up Sequences",
+      "count": 6,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15498",
+        "15926",
+        "15965",
+        "16189",
+        "16074",
+        "15792"
+      ],
+      "similar_questions": [
+        "Does your software detect out-of-office (OOO) replies and automatically know when to restart sending emails after an OOO response?",
+        "Can I manually move leads to the next step in a campaign sequence before the scheduled wait time has passed?",
+        "If a lead replies to the first email in a sequence, will they continue to receive follow-up emails?",
+        "Is it possible to automatically delete leads who have not replied after a sequence is complete, or does this need to be done manually?",
+        "Can I automatically send a follow-up reply to prospects who respond to my emails, such as providing a link or scheduling a chat? Is it possible to set this up using your API?"
+      ],
+      "created_at": "2025-05-25T17:05:22.038723"
+    },
+    {
+      "question": "Is it possible to link a single email account to multiple workspaces after adding it to one workspace?",
+      "answer": "Nope, you can only use one email account for one workspace. Once you’ve added it, you can’t link that same email to any other workspaces.",
+      "topic": "Workspace and Account Management",
+      "count": 6,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468898833636",
+        "215468869518121",
+        "15680",
+        "15506",
+        "15164",
+        "15157"
+      ],
+      "similar_questions": [
+        "Why is the ability to add multiple workspaces only available as a paid add-on, and not included for all users?",
+        "What should I do if my reseller added email accounts to the wrong workspace and reached the inbox limit?",
+        "How can I manage campaigns for multiple companies using your tool? Do I need separate accounts or can I use multiple workspaces, and is this feature available on all plans?"
+      ],
+      "created_at": "2025-05-25T17:18:44.121227"
+    },
+    {
+      "question": "If I add a new step to my campaign, will leads that have already completed the campaign be sent to the new step?",
+      "answer": "When you add a new step to your campaign, you’ll see a popup asking if you want to send that new step to leads who’ve already finished the campaign. You can decide if you want to include those leads or not.",
+      "topic": "Campaign Management",
+      "count": 6,
+      "quality_score": 8,
+      "conversation_ids": [
+        "16181",
+        "16010",
+        "15829",
+        "15728",
+        "15198",
+        "15057"
+      ],
+      "similar_questions": [
+        "If I add or delete steps in an active email sequence, will existing leads go through the new steps, or do changes only apply to new leads?",
+        "If I restart a completed email campaign without adding any new steps, will any emails be sent again?"
+      ],
+      "created_at": "2025-05-25T17:25:57.079830"
+    },
+    {
+      "question": "Do I need to add anything specific to my SPF record for your cold email service, or is the standard SPF record sufficient?",
+      "answer": "You don’t need to add anything special for us in your SPF record. Since we use your current email setup and mail server to send emails, your regular SPF records are all you need.",
+      "topic": "Email authentication (SPF records)",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469104990182",
+        "215468915919765",
+        "15797",
+        "15615",
+        "15263"
+      ],
+      "similar_questions": [
+        "Do I need to include a third-party platform's sending domain or IP addresses (such as pipl.ai) in my SPF record if the platform does not directly send emails on my behalf?",
+        "Does using SMTP providers affect email deliverability across different email outreach tools, and do features like dedicated IP pools improve deliverability for SMTP users?",
+        "Do I need to manually configure SPF, DKIM, and DMARC DNS records when importing email accounts, or does the system handle this automatically?",
+        "Do I need to use a separate email service provider to send emails through your application, and what are the requirements for choosing an email provider?"
+      ],
+      "created_at": "2025-05-25T17:04:44.134047"
+    },
+    {
+      "question": "How does A/B testing work on Pipl, and can I split the test by a specific percentage or automatically send the winning variation to the remaining recipients?",
+      "answer": "With Pipl, when you start an A/B test, the system splits your sending volume 50/50 between your variations. You can keep an eye on how each one’s doing in the campaign stats and turn them on or off yourself whenever you want. Right now, there’s no way to set a custom split or have the system automatically send the winner to the rest of your list. You’ll find all the A/B testing options in the sequence editor.",
+      "topic": "A/B Testing",
+      "count": 5,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215469081446852",
+        "215468920426463",
+        "15902",
+        "15727",
+        "15146"
+      ],
+      "similar_questions": [
+        "When duplicating a campaign, are the variant enable/disable settings copied, and is there a way to pause variants before launching the campaign?",
+        "How does A/B testing work in your email campaign platform, and how can I ensure that each lead receives the same script variation across all sequence steps?",
+        "How can I generate and export comprehensive reports for each campaign, including email open data and A/B test performance?",
+        "Can I link multiple templates with different subject lines to a single campaign?"
+      ],
+      "created_at": "2025-05-25T17:06:12.441407"
+    },
+    {
+      "question": "How can I create and use my own reply templates in the AI Replier?",
+      "answer": "If you want to make your own reply templates in the AI Replier, just use the 'Save as reply snippet' option down in the bottom right corner. After you write a reply you want to use again, click 'Save as reply snippet' to save it. Later, you can pick from your saved snippets whenever you’re replying. Just a heads up—it's called a 'snippet' in the interface, not a 'template'.",
+      "topic": "AI Replier Templates / Snippets",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469073785824",
+        "215468963754317",
+        "215468881361519",
+        "15614",
+        "15465"
+      ],
+      "similar_questions": [
+        "Is the AI reply feature included in the $37 plan, or is it only available as an add-on or with the business plan?",
+        "How can I upload and save my own email templates for future use?",
+        "How can I edit my existing email templates?"
+      ],
+      "created_at": "2025-05-25T17:06:35.054771"
+    },
+    {
+      "question": "Why does a lead show as 'Skipped: No MX record found for lead' during email validation?",
+      "answer": "Hey! That lead shows up as 'Skipped: No MX record found for lead' because the email address doesn’t have a valid MX (Mail Exchange) record. Basically, the domain isn’t set up to get emails, so our system can’t check the address or send anything to it.",
+      "topic": "Email Validation / Lead Management",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469040690441",
+        "15834",
+        "15791",
+        "15467",
+        "15059"
+      ],
+      "similar_questions": [
+        "What makes an email 'risky' during the verification process, and how does the verification process work?",
+        "How does Pipl verify email addresses, and how are risky or unknown emails handled?",
+        "How can I remove invalid or risky emails from my lead list in a campaign?",
+        "Can your platform match the sending email account with the recipient's mail server (e.g., Gmail to Gmail, Outlook to Outlook), and how does it technically determine the recipient's email provider?"
+      ],
+      "created_at": "2025-05-25T17:08:33.314167"
+    },
+    {
+      "question": "Will deleting a lead list affect my running email campaigns?",
+      "answer": "Nope, deleting a lead list won’t mess up your running campaigns. Just a heads up though—if you delete leads straight from a campaign, you won’t be able to see replies, stats, or other info for those leads anymore.",
+      "topic": "Email Campaign Management",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468952923143",
+        "215468908126211",
+        "215468866253942",
+        "15745",
+        "15941"
+      ],
+      "similar_questions": [
+        "If I delete a lead from a list, will it also be deleted from any campaigns that were created using that list?",
+        "How do I archive a campaign, and what happens to the leads inside the campaign?",
+        "What should I do if my lead lists are missing from the platform, and is it safe to upload new lists while the issue is being resolved?",
+        "Is it safe to upload a new lead list and create a new campaign while my previous lead lists are missing due to a database issue?"
+      ],
+      "created_at": "2025-05-25T17:12:33.393809"
+    },
+    {
+      "question": "What happens to my connected email accounts in Pipl.ai if I cancel my subscription? Will they be deleted or just become inactive?",
+      "answer": "If you cancel your Pipl.ai subscription, your connected email accounts will just go inactive—they won't get deleted from our system. As long as you don't change the login info for those accounts, you can bring them back by subscribing again later, and you won't have to reconnect them. Just a heads up, though: you'll still need to keep paying your email provider to keep access to those accounts.",
+      "topic": "Account Management / Subscription",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468933534921",
+        "215468888742957",
+        "215468871395699",
+        "15988",
+        "15169"
+      ],
+      "similar_questions": [
+        "Can I transfer my domain to another registrar if I decide to stop using your service, and will I have full access to my domain and email admin panel?",
+        "Can I downgrade my Pipl plan back to the lifetime (LTD) offer if I am not using the upgraded plan?",
+        "What happens after my free trial ends, and do I need to pay to continue using the product or access advanced features?",
+        "How do I cancel my free trial to ensure I am not charged?"
+      ],
+      "created_at": "2025-05-25T17:14:56.297688"
+    },
+    {
+      "question": "Why is my email formatting, such as bold text, not appearing in test emails sent from my campaign?",
+      "answer": "If your emails aren’t showing bold text or other formatting, it’s probably because plain text sending is turned on. Plain text doesn’t support stuff like bold, italics, or colors. To use formatting, just turn off plain text and switch to HTML or rich text mode instead.",
+      "topic": "Email Formatting",
+      "count": 5,
+      "quality_score": 9,
+      "conversation_ids": [
+        "16224",
+        "15779",
+        "15925",
+        "15475",
+        "15126"
+      ],
+      "similar_questions": [
+        "Can I copy and paste email content from other sources like Instantly or Word into my campaign, or will formatting cause issues?",
+        "How can I add a GIF to my email campaign so that it displays correctly, and what is a simple way to host the GIF online for use with the 'add from URL' feature?",
+        "Why are replies to my test emails not appearing in the inbox, and how can I properly test email replies in my campaign tool?",
+        "How can I include a hyperlink or an embedded GIF in the body of an email sent via the Pipl.ai API webhook?"
+      ],
+      "created_at": "2025-05-25T17:23:28.777506"
+    },
+    {
+      "question": "Is it possible to buy already warmed up email accounts?",
+      "answer": "No, we don’t sell pre-warmed email accounts. Also, using a domain that doesn’t really match your business or target customers probably isn’t the best idea.",
+      "topic": "Email Accounts / Warm-up Services",
+      "count": 5,
+      "quality_score": 7,
+      "conversation_ids": [
+        "16112",
+        "16047",
+        "15817",
+        "15248",
+        "15148"
+      ],
+      "similar_questions": [
+        "How does the age of my sending domain affect email deliverability to Outlook inboxes, and is using a domain that's a couple of years old enough to ensure good inbox placement?",
+        "Can I use an alternative domain that I have validated with Google Workspace with your service?",
+        "How long should I warm up a new domain before using it to send campaign emails?",
+        "What should I do if my domain has a very low inbox placement score and emails are landing in spam from day one, even after starting warmup?"
+      ],
+      "created_at": "2025-05-25T17:27:42.938472"
+    },
+    {
+      "question": "Will a subsequence be stopped if someone replies to the original thread before the subsequence begins?",
+      "answer": "Yep, if someone replies to the original thread before the subsequence starts, the subsequence will stop.",
+      "topic": "Automated messaging/sequences",
+      "count": 5,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15790",
+        "15605",
+        "15594",
+        "15507",
+        "15443"
+      ],
+      "similar_questions": [
+        "Is the trigger for moving leads to a subsequence case sensitive?",
+        "Can a contact who replies again be enrolled into another subsequence within the same campaign, or do I need to create a new subsequence for them?",
+        "If I delete a subsequence in my email campaign, will the leads in that subsequence also be deleted? How are leads automatically added to a subsequence, and can I control or disable this automation?",
+        "How does the subsequence feature work in terms of email threading and timing? If I set the delay to 0 days, will the subsequence email be sent instantly after a recipient responds, and will it appear in the same email thread or start a new one?"
+      ],
+      "created_at": "2025-05-25T17:38:19.235575"
+    },
+    {
+      "question": "What is the recommended practice for pausing cold email sending to improve email reputation, and how long should I pause sending to help recover from spam issues?",
+      "answer": "It’s pretty common to hit pause on all cold email sending for a bit and just let your email accounts focus on warming up. This gives your domain and sender reputation a chance to recover, especially if you think your emails might be landing in spam. Usually, taking a break for about 14 days works well, but you can stretch it to 30 days if you want to be extra careful. While you’re on this break, just keep your accounts in the warmup phase and hold off on sending any cold emails.",
+      "topic": "Email Deliverability & Reputation Management",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "16032",
+        "215469124383773",
+        "15720",
+        "15942"
+      ],
+      "similar_questions": [
+        "How can I recover email deliverability after transitioning mailboxes to a new provider without sufficient warm-up?",
+        "What should I do if my email deliverability drops and my emails start going to spam after increasing sending volume?",
+        "What is the recommended action for inboxes with ERROR status after a mass reset or downtime? Should I pause sending and warmup for those inboxes, and for how long?"
+      ],
+      "created_at": "2025-05-25T17:03:13.728722"
+    },
+    {
+      "question": "Does your system automatically randomize email sending times, or do I need to set them manually?",
+      "answer": "Our system uses built-in AI to figure out the best time to send emails, so you don’t have to worry about picking a time yourself. Even if you set something like a 5-minute interval, it’ll still handle the timing automatically for you.",
+      "topic": "Email Sending Automation",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469111050242",
+        "15989",
+        "15769",
+        "15352"
+      ],
+      "similar_questions": [
+        "Why are some emails being sent outside of office hours, even though my account is set to the correct timezone?",
+        "Why are my email campaigns not sending messages immediately at the scheduled start time, and how is the daily sending volume reset?",
+        "Is it possible to send emails to contacts in specific time zones if my contact list includes people from different regions?"
+      ],
+      "created_at": "2025-05-25T17:04:20.452543"
+    },
+    {
+      "question": "If I leave the subject field empty when adding a follow-up step, will the same subject line be used as the previous email?",
+      "answer": "Yep, if you leave the subject blank for a follow-up, it'll just use the same subject as the last email. That way, all your emails stay together in the same thread in their inbox.",
+      "topic": "Email follow-up subject lines",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469101054731",
+        "15566",
+        "15505",
+        "15207"
+      ],
+      "similar_questions": [
+        "Why am I being asked to enter a subject line when creating my email sequence?"
+      ],
+      "created_at": "2025-05-25T17:04:55.396746"
+    },
+    {
+      "question": "Can I adjust or add custom fields to leads in a campaign after it has started, and how do I do this?",
+      "answer": "Yep, you can still change or add custom fields to leads in a campaign after it’s already started. Just re-upload your leads file with the new or updated fields, and pick the option to ‘replace existing lead data in this campaign.’ That’ll update your current leads with the changes.",
+      "topic": "Campaign Management / Lead Data Updates",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469074541170",
+        "215468992890211",
+        "215468865648535",
+        "15371"
+      ],
+      "similar_questions": [
+        "Is it possible to use custom variables in the email content?",
+        "Can I import a contact list with only some custom variables and add the remaining variables later?",
+        "How can I create custom variables in the system?"
+      ],
+      "created_at": "2025-05-25T17:06:17.118222"
+    },
+    {
+      "question": "Can I scrape data from LinkedIn Sales Navigator?",
+      "answer": "Yep, you can use our Chrome extension to scrape data from LinkedIn Sales Navigator. If you want to see exactly how it works, check out our tutorial video here: https://www.youtube.com/watch?v=Sfm-Ke_L_QQ",
+      "topic": "LinkedIn Sales Navigator data scraping",
+      "count": 4,
+      "quality_score": 7,
+      "conversation_ids": [
+        "215469006633314",
+        "16123",
+        "16162",
+        "15517"
+      ],
+      "similar_questions": [
+        "Does Pipl plan to add an AI feature that can scrape the web like Claygent AI in Clay?",
+        "Does your extension provide a database of leads, or do I need to find leads myself?",
+        "Can Data Miner extract data from detail pages that are hyperlinked from search results on sites like Indeed or Seek?"
+      ],
+      "created_at": "2025-05-25T17:09:25.370686"
+    },
+    {
+      "question": "How can I schedule the first email in a sequence to be sent at a future date instead of immediately?",
+      "answer": "You can set your campaign to start later by heading to the schedule section when you’re making your sequence. Just look for the option to pick a start date—that’s when your first email will go out.",
+      "topic": "Email Campaign Scheduling",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469004226779",
+        "215468976468529",
+        "15732",
+        "15574"
+      ],
+      "similar_questions": [
+        "Do subsequences in my campaign follow the same sending schedule as the main campaign, or can I set their schedules separately?",
+        "If I schedule a campaign to start on a future date but leave it toggled off, will it automatically start on that date, or do I need to manually turn it on?",
+        "If I set the initial delay for 0 days in a subsequence after a lead is marked as interested, how long will it take for the email to be sent?"
+      ],
+      "created_at": "2025-05-25T17:09:46.946833"
+    },
+    {
+      "question": "Why can't I generate an API key?",
+      "answer": "Only users on the business plan can make an API key.",
+      "topic": "API Access",
+      "count": 4,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215468989026589",
+        "16077",
+        "15899",
+        "15438"
+      ],
+      "similar_questions": [
+        "Can I upgrade my lifetime account by paying a monthly fee to access the webhook feature?"
+      ],
+      "created_at": "2025-05-25T17:10:55.659154"
+    },
+    {
+      "question": "How accurate are warmup tools like 'Warmup Saved from Spam' for measuring email deliverability and spam rates?",
+      "answer": "Tools like 'Warmup Saved from Spam' are pretty handy for checking how healthy your email account is. If your warmup score is over 90%, that usually means your setup is solid and your domain or IP isn’t blacklisted. Just keep in mind, though, these tools can’t promise your actual campaign emails will always land in inboxes. That’s because warmup emails get sent in a controlled group with unique content, but campaign emails usually go out in bulk and look pretty similar, which spam filters notice. So, while warmup scores are great for keeping an eye on your technical health, they don’t always show what’ll happen with your real campaigns.",
+      "topic": "Email Deliverability",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468911170280",
+        "15921",
+        "15816",
+        "15342"
+      ],
+      "similar_questions": [
+        "Why do email warmup tools like Pipl show better inbox placement results compared to online spam checkers, and does this mean my real campaign emails will avoid spam folders?",
+        "Does ESP Matching improve email deliverability, and if so, by how much?",
+        "What does it mean if an email is 'saved from spam' during the warmup process, and does it indicate the email landed in the spam folder?"
+      ],
+      "created_at": "2025-05-25T17:13:52.998896"
+    },
+    {
+      "question": "If I receive bonus enrichment credits from a promotion or review, will my total credits reset to the standard monthly amount or will the bonus credits carry over to the next month?",
+      "answer": "Bonus enrichment credits (like the ones you get from promos or reviews) won't roll over to the next month—they'll reset to your usual monthly amount when your new billing cycle starts. But if you can't use your bonus credits before your billing date, just let us know and you can ask to have them added back for the next month.",
+      "topic": "Account Credits and Billing",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468948065274",
+        "15860",
+        "15649",
+        "15055"
+      ],
+      "similar_questions": [
+        "Why do the displayed numbers for enrichment and verification credits differ in my account?",
+        "How do I receive extra credits for leaving a review on G2 or Capterra, and when will they be added to my account?",
+        "Can I purchase additional credits specifically for email verification, and how does the credit system work for verifying emails?"
+      ],
+      "created_at": "2025-05-25T17:14:35.629411"
+    },
+    {
+      "question": "Where can I view replies from my email campaigns?",
+      "answer": "You can check out replies from your email campaigns in your Unified Inbox. Any replies to your campaign emails will get forwarded there, so they're easy to find.",
+      "topic": "Email Campaign Management",
+      "count": 4,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468865934786",
+        "15799",
+        "15304",
+        "15299"
+      ],
+      "similar_questions": [
+        "What does the 'All Email Replies' event refer to in Pipl.ai webhooks?",
+        "Will all email responses, including those that land in the spam folder, appear in the Unibox, or do I need to check the email account directly?",
+        "How can I check if I have received replies to my email campaigns?"
+      ],
+      "created_at": "2025-05-25T17:22:14.302634"
+    },
+    {
+      "question": "When are affiliate payouts processed, and is there a minimum payout threshold?",
+      "answer": "We send out affiliate payouts on the 5th of every month, and there’s no minimum amount you need to earn before you get paid.",
+      "topic": "affiliate program payouts",
+      "count": 3,
+      "quality_score": 10,
+      "conversation_ids": [
+        "215469047866529",
+        "215468913664490",
+        "15641"
+      ],
+      "similar_questions": [
+        "How can I get a referral or affiliate link to promote your service?",
+        "Can I earn a bonus or credits by referring friends to your service?"
+      ],
+      "created_at": "2025-05-25T17:07:41.050661"
+    },
+    {
+      "question": "If fallback sending is enabled in a campaign, will prospects be skipped when switching accounts?",
+      "answer": "Nope, if you’ve got fallback sending turned on for your campaign, your prospects won’t get skipped when you switch accounts. The fallback just makes sure your messages still go out if there’s a problem with your main sending account.",
+      "topic": "Campaign Management / Fallback Sending",
+      "count": 3,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468977789088",
+        "215468899009096",
+        "15654"
+      ],
+      "similar_questions": [
+        "If I change the inboxes associated with a tag after launching a campaign, and the original inboxes are removed from the tag, can I continue sending emails to leads using the original inboxes or by turning on fallback sending or editing the Sending Email Accounts?"
+      ],
+      "created_at": "2025-05-25T17:11:31.725090"
+    },
+    {
+      "question": "How can I get access to the private Pipl user community?",
+      "answer": "You can join our private Pipl user community with this Slack invite link: https://join.slack.com/t/pipl-ai/shared_invite/zt-34ur4zxps-5xe5yqABUDSvzt3NSSFycw. If the link doesn't work or you run into any problems, just reach out to support and we'll send you a new invite.",
+      "topic": "Community Access",
+      "count": 3,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215468910159387",
+        "16177",
+        "15512"
+      ],
+      "similar_questions": [
+        "How do I set up the Slack integration for another client in their Slack workspace?",
+        "Is there a place where I can connect with other users to share or offer automations I've built, and are there specific channels I should use to avoid spamming the community?"
+      ],
+      "created_at": "2025-05-25T17:16:42.522761"
+    },
+    {
+      "question": "Is it possible to set up an integration so that email replies are sent as notifications to a Slack channel?",
+      "answer": "Yep, there’s a built-in Slack integration that’ll send email replies as notifications right to your Slack channel. You can set it up straight from your workspace settings, no need for anything extra like Zapier.",
+      "topic": "Integrations",
+      "count": 3,
+      "quality_score": 8,
+      "conversation_ids": [
+        "16201",
+        "15804",
+        "15494"
+      ],
+      "similar_questions": [
+        "How can I receive email notifications for replies to ongoing email conversations with prospects?",
+        "Why are my Slack alerts not appearing when using the email integration, and how can I fix it?"
+      ],
+      "created_at": "2025-05-25T17:24:34.489932"
+    },
+    {
+      "question": "Does the Done-For-You (DFY) email setup service include purchasing domains on my behalf, and is there an additional cost for the domains?",
+      "answer": "Yep, with our DFY email setup service, we’ll buy the domains for you. We’ll show you a list of options based on a sample you give us first. Just a heads up, there’s an extra cost of $13.95 per year for each domain.",
+      "topic": "DFY email setup and domain purchasing",
+      "count": 3,
+      "quality_score": 9,
+      "conversation_ids": [
+        "16200",
+        "16193",
+        "15694"
+      ],
+      "similar_questions": [
+        "Do you provide assistance with technical setup and onboarding for your tool, and is there an extra fee for this support?"
+      ],
+      "created_at": "2025-05-25T17:25:03.455349"
+    },
+    {
+      "question": "If I do not track email opens in my campaign settings, do I still need to add a custom tracking domain?",
+      "answer": "Nope, if you’re not tracking email opens in your campaign settings, you don’t need to worry about adding a custom tracking domain.",
+      "topic": "Email Campaign Tracking",
+      "count": 3,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15690",
+        "15659",
+        "15417"
+      ],
+      "similar_questions": [
+        "How is the open rate percentage calculated in email campaign analytics, and what does 'open count (all-time)' mean?",
+        "How should I set up a custom tracking domain in pipl.ai, and what are the best practices for email signature and warmup settings when migrating from another platform?"
+      ],
+      "created_at": "2025-05-25T17:41:50.026763"
+    },
+    {
+      "question": "Can I use pipl.ai's built-in tools to create personalized offers for each lead based on their specific pain points?",
+      "answer": "Yep, you can totally use pipl.ai’s built-in tools to make personalized offers for each prospect. They’ve got features like web scraping and LinkedIn scraping to help you gather info about your leads, so you can spot their pain points and send them messages or offers that really fit. If you want to see how it all works, they have an instructional video you can check out for more details.",
+      "topic": "Personalization and lead enrichment",
+      "count": 2,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15839",
+        "215468863346721"
+      ],
+      "similar_questions": [
+        "Can I use Pipl.ai to send emails to new website subscribers, and how does it differ from tools like Mailchimp?"
+      ],
+      "created_at": "2025-05-25T17:04:34.743680"
+    },
+    {
+      "question": "Where can I find the API documentation for Pipl.ai?",
+      "answer": "Hey! You can check out the API docs for Pipl.ai here: https://developer.pipl.ai/",
+      "topic": "API Documentation",
+      "count": 2,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469073827179",
+        "15476"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:06:31.176741"
+    },
+    {
+      "question": "Why was my Gsuite email account suspended even though I followed sending limits and my emails were not marked as spam?",
+      "answer": "Sometimes Gsuite email accounts get suspended out of the blue, even if you’re following all the sending limits and your emails aren’t marked as spam. Usually, this doesn’t mess with your email deliverability. You can usually fix it by just un-suspending your inbox in the Gsuite (Google Workspace) admin panel.",
+      "topic": "Email Account Suspension",
+      "count": 2,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215468965322310",
+        "16136"
+      ],
+      "similar_questions": [
+        "What should I do if my email account is disabled by Google despite following best practices and verifying all emails?"
+      ],
+      "created_at": "2025-05-25T17:13:07.156554"
+    },
+    {
+      "question": "Are there currently any active discount offers or promo codes available?",
+      "answer": "Right now, we’re not running any discounts.",
+      "topic": "Discounts and Promotions",
+      "count": 2,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15861",
+        "15273"
+      ],
+      "similar_questions": [
+        "Are there any promo codes or additional discounts available for annual subscription plans?"
+      ],
+      "created_at": "2025-05-25T17:37:02.982493"
+    },
+    {
+      "question": "Can I use Pipl webhooks to detect test emails or simulate webhook events without sending live campaigns?",
+      "answer": "Nope, Pipl webhooks can’t pick up test emails or fake events. If you want to test your webhook setup, you’ll need to actually create and send a live campaign. Right now, there’s no built-in way to trigger webhook events without using real data.",
+      "topic": "Webhooks / Testing Integrations",
+      "count": 2,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15568",
+        "15238"
+      ],
+      "similar_questions": [
+        "Can I send a webhook after an email has been sent in Pipl, and include the entire email body in the webhook payload? Is there a variable for the email body sent?"
+      ],
+      "created_at": "2025-05-25T17:46:24.100526"
+    },
+    {
+      "question": "If I use the bulk edit feature to change email sending limits, will it affect other settings like warm-up if I don't modify them?",
+      "answer": "Nope, using the bulk edit feature will only change the fields you actually update. Anything else, like warm-up settings, won’t be touched unless you change them yourself.",
+      "topic": "Email Sending Limits / Bulk Edit",
+      "count": 2,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15539",
+        "15384"
+      ],
+      "similar_questions": [
+        "How can I manage warmup and campaign sending limits in Pipl, and what are best practices for setting these limits?"
+      ],
+      "created_at": "2025-05-25T17:47:13.655251"
+    },
+    {
+      "question": "Can I add attachments to my email replies?",
+      "answer": "Yep, you can add attachments to your email replies. Just look for the button in the reply box that lets you attach files.",
+      "topic": "Email Features",
+      "count": 2,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15462",
+        "15183"
+      ],
+      "similar_questions": [
+        "How can I insert an image into my email if the original image URL does not allow embedding?"
+      ],
+      "created_at": "2025-05-25T17:50:08.439350"
+    },
+    {
+      "question": "What is the purpose of the OpenAI API key settings, and what features require it?",
+      "answer": "With the OpenAI API key settings, you can use your own OpenAI API key for things like AI enrichment (like when you’re enriching lists of leads). If you use your own key, you won’t use up any enrichment credits. Just so you know, other AI stuff like making campaign content, auto spintax, and the AI reply agent are all included with your subscription, so you don’t need to add an OpenAI API key for those.",
+      "topic": "AI features and OpenAI API integration",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469132570151"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:02:57.542470"
+    },
+    {
+      "question": "Will my email campaigns and warmup processes continue to run if I shut down my computer, since your platform is cloud-based?",
+      "answer": "Yep, our platform is cloud-based, so your email campaigns and warmup stuff will keep running even if you turn off your computer. Everything works on our end, so you don’t have to leave your device on for your scheduled tasks to go through.",
+      "topic": "Cloud-based email platform functionality",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469107062726"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:05:00.814646"
+    },
+    {
+      "question": "Why are there no events available in Zapier when connecting Plusvibe (or Pipl), and how can I set up a trigger?",
+      "answer": "If you’re trying to connect Plusvibe or Pipl to Zapier and don’t see any events to pick from, it’s because these apps don’t have built-in triggers on Zapier. But no worries—you can still get things working using webhooks! Just set up a webhook in your Pipl (or Plusvibe) account to send data over to a Zapier Webhooks URL. Then in your Zap, pick the ‘Webhooks by Zapier’ trigger to catch and use that data. This way, you can still automate stuff even if the app doesn’t have its own Zapier triggers.",
+      "topic": "Zapier Integration / Webhooks",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469084518867"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:06:01.034326"
+    },
+    {
+      "question": "How is your inbox service different from other premium inbox providers, and does it offer the same deliverability as setting up Google Workspace independently?",
+      "answer": "Hey! Our inbox service is a bit different from most premium inbox providers because of how we keep everything separate. You’ll get your own Google Workspace admin panel, so your setup is totally isolated from anyone else’s. That way, what other users do won’t mess with your deliverability.\n\nA lot of other providers put lots of clients under the same admin panel, which can end up hurting deliverability over time. With us, you actually own your domain, inbox, and setup—we just take care of all the technical stuff for you (like SPF, DKIM, DMARC, warm-up, and DNS) to make sure your cold emails perform as well as possible.",
+      "topic": "Email deliverability / Inbox services",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469062083097"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:07:13.488602"
+    },
+    {
+      "question": "How can I include an automatic unsubscribe link in my email campaigns, and why doesn't it appear in the email preview or merge fields dropdown?",
+      "answer": "If you want to add an automatic unsubscribe link to your email campaigns, just turn on the unsubscribe option in your campaign’s safety settings. Once that's on, the unsubscribe link will get added to every email you send with that campaign. Just a heads up—the unsubscribe link might not show up in your merge fields dropdown or in the email draft preview, since it only gets added when the emails actually go out to recipients.",
+      "topic": "Email Campaigns / Unsubscribe Link",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215469048136193"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:07:50.146871"
+    },
+    {
+      "question": "If I forward an email before responding, will the recipient see the forwarded email when I reply?",
+      "answer": "Nope, if you’re using Unibox, any forwarded email won’t show up in your reply. You can go ahead and respond to the lead—they won’t see the forwarded email.",
+      "topic": "Email forwarding and replies",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468953651748"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:13:57.928127"
+    },
+    {
+      "question": "Does the 'Stop Sending to Same Domain on Reply' feature apply to public domains like Gmail?",
+      "answer": "Nope, the 'Stop Sending to Same Domain on Reply' feature doesn’t work with public domains like Gmail or Mweb. It only works with private or custom domains.",
+      "topic": "Email Features",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "215468908728558"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:17:11.413002"
+    },
+    {
+      "question": "How can I enable two-factor authentication on my account?",
+      "answer": "Right now, we don’t have two-factor authentication for accounts.",
+      "topic": "Account Security",
+      "count": 1,
+      "quality_score": 8,
+      "conversation_ids": [
+        "215468882776038"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:20:46.609084"
+    },
+    {
+      "question": "Can I pay with my PayPal account?",
+      "answer": "Hey! Right now, we can only take payments through Stripe.",
+      "topic": "Payment Methods",
+      "count": 1,
+      "quality_score": 7,
+      "conversation_ids": [
+        "215468870664729"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:21:48.212663"
+    },
+    {
+      "question": "If I upgrade my Pipl.ai plan from Personal to Business, will I only be charged the difference between the two plans, and will my renewal date stay the same?",
+      "answer": "Yep, when you upgrade your Pipl.ai plan from Personal to Business, you’ll usually just pay the difference between the two plans, and your renewal date stays the same. That’s how it normally works when you upgrade.",
+      "topic": "Account Upgrades and Billing",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15887"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:35:30.359198"
+    },
+    {
+      "question": "What is the reply rate for basic warm-up, and can using the same warm-up filter tag hurt deliverability?",
+      "answer": "The reply rate for basic warm-up is 35%. It’s better not to use the same warm-up filter tag in a bunch of emails, since that can make email providers flag you. To keep your deliverability up, try to mix up your filter tags and email content as much as you can.",
+      "topic": "Email Warm-up & Deliverability",
+      "count": 1,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15824"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:37:22.135890"
+    },
+    {
+      "question": "How can I edit or cancel a message that is scheduled to be sent in the future in Unibox?",
+      "answer": "Right now, you can only cancel a scheduled send in Unibox—you can't edit a scheduled message just yet. But don't worry, the option to edit scheduled messages is on the way in a future update!",
+      "topic": "Campaign Management / Unibox Features",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15390"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:37:54.294370"
+    },
+    {
+      "question": "If I delete a lead, will it still be counted in my statistics and will it disappear from my inbox?",
+      "answer": "If you delete a lead, it’ll still show up in your stats and won’t disappear from your inbox.",
+      "topic": "Leads Management",
+      "count": 1,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15696"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:41:24.258184"
+    },
+    {
+      "question": "If I import a CSV file with a list of leads, in what order are the emails sent to them?",
+      "answer": "When you upload a CSV with your leads, the system will reach out to them in the same order they’re listed in your file, starting from the top. So if you want the emails to go out in a certain order, just rearrange your leads in the CSV before you import it.",
+      "topic": "Lead processing order / Email sequencing",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15648"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:42:02.422580"
+    },
+    {
+      "question": "Can your email sending software integrate with clay.com?",
+      "answer": "We don’t have a direct integration with clay.com right now, but you can still connect things using some workarounds. Here’s a video that shows you how: https://www.youtube.com/watch?v=9KtD2Wrp2hU.",
+      "topic": "Integrations",
+      "count": 1,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15638"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:43:52.317812"
+    },
+    {
+      "question": "Why am I seeing a message that an app is blocked from accessing my Google Account, and how can I resolve this when connecting to Google Workspace?",
+      "answer": "This message pops up because Google’s blocking the app from getting into some sensitive info in your Google Account, just to keep things secure. Don’t worry—your Google account isn’t blocked. To fix this, you’ll need to let the app through in your Google Admin panel. Usually, an admin has to whitelist the app or give it permission by following some steps in the Google Admin console. If you’re not sure how to do this, you can check out some how-to videos or guides from the app or from Google support.",
+      "topic": "Google Workspace App Access",
+      "count": 1,
+      "quality_score": 8,
+      "conversation_ids": [
+        "15556"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:47:35.723337"
+    },
+    {
+      "question": "How can I access invoices if I am not the account owner?",
+      "answer": "Only the account owner can see invoices right now. There isn’t a way to let other users access them directly. If you need to see an invoice, you’ll have to ask the account owner to either share their access with you or send you the invoices themselves.",
+      "topic": "Account Access & Permissions",
+      "count": 1,
+      "quality_score": 9,
+      "conversation_ids": [
+        "15247"
+      ],
+      "similar_questions": [],
+      "created_at": "2025-05-25T17:58:21.791484"
+    }
+  ]
+}

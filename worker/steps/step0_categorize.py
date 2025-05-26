@@ -25,13 +25,13 @@ STICKY_PROMPT = """You are a message categorizer for PlusVibe.ai (formely call p
 Return JSON format:
 {"category": "[CATEGORY_NAME]", "confidence": [0.0 to 1.0]}
 
-IMPORTANT: For PROMOTIONAL_EMAIL category, only use this if confidence is very high (>0.9) that it's clearly promotional/marketing content.
+CONTEXT ANALYSIS: When the current message is vague or general (like "I expect an answer", "please help", "any update?"), look at the conversation history to understand what the customer is actually asking about. If they have asked specific questions earlier in the conversation, treat the current message as a PROPER_QUESTION that should trigger answering those previous questions.
+
 IMPORTANT: For ISSUE_RESOLVED category, consider the conversation context - this should be used when the customer is responding positively after receiving help or indicating their problem is solved.
 IMPORTANT: For UNHAPPY_WITH_ADMIN category, look for:
 - Direct expressions of dissatisfaction ("this doesn't work", "that's not helpful", "I already tried that")
-- Repeated questions: If the customer asks the same or very similar question again after receiving an admin response, this likely means they weren't satisfied with the previous answer
 - Escalation language ("I need to speak to someone else", "this isn't working")
-- When analyzing conversation history, pay attention to patterns where customer asks question → admin responds → customer asks same/similar question again"""
+"""
 
 # Category configurations - easy to modify and extend
 CATEGORY_ACTIONS = {

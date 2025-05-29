@@ -11,7 +11,7 @@ from openai_utils import call_openai_with_retry
 from common_utils import get_random_reply, clean_html, build_conversation_context
 
 # Sticky prompt for message categorization
-STICKY_PROMPT = """You are a message categorizer for PlusVibe.ai (formely call pipl.ai) customer support. Analyze the customer message and categorize it into one of these types:
+STICKY_PROMPT = """You are a message categorizer for PlusVibe.ai (formely call pipl.ai) customer support. Analyze the ENTIRE conversation context and categorize the customer's intent into one of these types:
 
 1. BUG_REPORT - Customer is reporting a bug, issue, or problem with the service
 2. NO_FOLLOWUP_REPLY - Simple acknowledgments like "ok", "thanks", "got it" that don't expect a response
@@ -25,12 +25,18 @@ STICKY_PROMPT = """You are a message categorizer for PlusVibe.ai (formely call p
 Return JSON format:
 {"category": "[CATEGORY_NAME]", "confidence": [0.0 to 1.0]}
 
-CONTEXT ANALYSIS: When the current message is vague or general (like "I expect an answer", "please help", "any update?"), look at the conversation history to understand what the customer is actually asking about. If they have asked specific questions earlier in the conversation, treat the current message as a PROPER_QUESTION that should trigger answering those previous questions.
+CRITICAL INSTRUCTIONS:
+1. ANALYZE THE ENTIRE CONVERSATION CONTEXT, not just the last message
+2. When the current message is vague or general (like "I expect an answer", "please help", "any update?", "hi"), look at the FULL conversation history to understand what the customer is actually asking about
+3. If they have asked specific questions earlier in the conversation, treat the current message as a PROPER_QUESTION that should trigger answering those previous questions
+4. Consider the conversation flow: if a customer asked a detailed question earlier and now sends a brief follow-up, it's still about their original question
+5. For images/attachments, consider them as part of the customer's question or issue
 
 IMPORTANT: For ISSUE_RESOLVED category, consider the conversation context - this should be used when the customer is responding positively after receiving help or indicating their problem is solved.
 IMPORTANT: For UNHAPPY_WITH_ADMIN category, look for:
 - Direct expressions of dissatisfaction ("this doesn't work", "that's not helpful", "I already tried that")
 - Escalation language ("I need to speak to someone else", "this isn't working")
+- Repeated questions after receiving admin responses (indicates dissatisfaction with previous answers)
 """
 
 # Category configurations - easy to modify and extend
@@ -126,6 +132,7 @@ def get_smart_resolution_reply(user_message):
                 "you're welcome",
                 "Welcome!",
                 "Welcome",
+                "sure, anytime",
                 "Glad we could help",
                 "Happy to help"
             ]
@@ -147,15 +154,23 @@ def categorize_message(user_message, conversation_history=None):
         conversation_context = ""
         if conversation_history:
             print(f"DEBUG: Including {len(conversation_history)} messages of conversation context")
-            conversation_context = build_conversation_context(conversation_history, 10)
+            conversation_context = build_conversation_context(conversation_history, 15)  # Increased limit
         
-        # Create prompt for AI categorization
+        # Create prompt for AI categorization with context-first approach
+        if conversation_context:
+            user_content = f"""{conversation_context}
+
+CURRENT MESSAGE: "{user_message}"
+
+Based on the ENTIRE conversation above, categorize the customer's intent. Pay special attention to any previous questions or issues that may not be resolved, and consider how the current message relates to the overall conversation flow."""
+        else:
+            user_content = f"""Customer message: "{user_message}"
+
+Categorize this message and return JSON with category and confidence."""
+        
         messages = [
             {"role": "system", "content": STICKY_PROMPT},
-            {"role": "user", "content": f"""Customer message: "{user_message}"
-{conversation_context}
-
-Categorize this message and return JSON with category and confidence."""}
+            {"role": "user", "content": user_content}
         ]
         
         print(f"DEBUG: Sending to OpenAI for categorization...")
@@ -170,7 +185,7 @@ Categorize this message and return JSON with category and confidence."""}
         
         response = call_openai_with_retry(
             messages=messages,
-            max_completion_tokens=100,
+            max_completion_tokens=150,  # Increased for more detailed analysis
             temperature=0.1,  # Low temperature for consistent categorization
             response_format={"type": "json_object"},
             max_retries=3

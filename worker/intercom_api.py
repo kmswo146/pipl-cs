@@ -74,11 +74,21 @@ class IntercomAPI:
         # Add initial message
         source = conversation_data.get('source', {})
         if source:
+            message_content = source.get('body', '')
+            
+            # Check for attachments in the initial message
+            attachments = source.get('attachments', [])
+            if attachments:
+                attachment_text = self._format_attachments(attachments)
+                if attachment_text:
+                    message_content += f"\n{attachment_text}"
+            
             history.append({
                 'role': 'user',
-                'message': source.get('body', ''),
+                'message': message_content,
                 'timestamp': source.get('created_at'),
-                'author': source.get('author', {})
+                'author': source.get('author', {}),
+                'attachments': attachments
             })
         
         # Add conversation parts
@@ -88,11 +98,21 @@ class IntercomAPI:
                 author = part.get('author', {})
                 role = 'admin' if author.get('type') == 'admin' else 'user'
                 
+                message_content = part.get('body', '')
+                
+                # Check for attachments in this part
+                attachments = part.get('attachments', [])
+                if attachments:
+                    attachment_text = self._format_attachments(attachments)
+                    if attachment_text:
+                        message_content += f"\n{attachment_text}"
+                
                 history.append({
                     'role': role,
-                    'message': part.get('body', ''),
+                    'message': message_content,
                     'timestamp': part.get('created_at'),
-                    'author': author
+                    'author': author,
+                    'attachments': attachments
                 })
         
         # Return only the last N messages (most recent)
@@ -101,6 +121,31 @@ class IntercomAPI:
             print(f"DEBUG: Limited conversation history to last {limit_messages} messages")
         
         return history
+    
+    def _format_attachments(self, attachments):
+        """Format attachments into readable text"""
+        if not attachments:
+            return ""
+        
+        attachment_descriptions = []
+        for attachment in attachments:
+            attachment_type = attachment.get('type', 'file')
+            name = attachment.get('name', 'unnamed')
+            content_type = attachment.get('content_type', '')
+            
+            if attachment_type == 'upload':
+                if content_type.startswith('image/'):
+                    attachment_descriptions.append(f"[Image: {name}]")
+                elif content_type.startswith('video/'):
+                    attachment_descriptions.append(f"[Video: {name}]")
+                elif content_type.startswith('audio/'):
+                    attachment_descriptions.append(f"[Audio: {name}]")
+                else:
+                    attachment_descriptions.append(f"[File: {name}]")
+            else:
+                attachment_descriptions.append(f"[Attachment: {name}]")
+        
+        return " ".join(attachment_descriptions)
     
     def extract_unresolved_context(self, conversation_data, limit_messages=20):
         """Extract conversation history focusing on unresolved questions/issues"""

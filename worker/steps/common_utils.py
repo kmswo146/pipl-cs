@@ -53,11 +53,29 @@ def build_conversation_context(conversation_history, limit_messages=10):
     if not conversation_history:
         return ""
     
-    context = "\nRecent conversation history:\n"
-    for msg in conversation_history[-limit_messages:]:
+    context = "\n=== FULL CONVERSATION HISTORY ===\n"
+    
+    # Use the most recent messages, but show them in chronological order
+    recent_messages = conversation_history[-limit_messages:]
+    
+    for i, msg in enumerate(recent_messages):
         if msg['message'].strip():
             clean_msg = clean_html(msg['message'])
             role = "Customer" if msg['role'] == 'user' else "Support"
-            context += f"{role}: {clean_msg}\n"
+            
+            # Add timestamp if available for context
+            timestamp_info = ""
+            if msg.get('timestamp'):
+                try:
+                    from datetime import datetime
+                    ts = datetime.fromtimestamp(msg['timestamp'])
+                    timestamp_info = f" ({ts.strftime('%H:%M')})"
+                except:
+                    pass
+            
+            # Add message number for easier reference
+            context += f"[{i+1}] {role}{timestamp_info}: {clean_msg}\n"
+    
+    context += "=== END CONVERSATION HISTORY ===\n"
     
     return context 

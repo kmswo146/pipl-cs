@@ -133,17 +133,35 @@ class IntercomAPI:
             name = attachment.get('name', 'unnamed')
             content_type = attachment.get('content_type', '')
             
+            # Check for URL fields that Intercom might provide
+            url = attachment.get('url') or attachment.get('download_url') or attachment.get('data')
+            
             if attachment_type == 'upload':
                 if content_type.startswith('image/'):
-                    attachment_descriptions.append(f"[Image: {name}]")
+                    desc = f"[Image: {name}]"
+                    if url:
+                        desc += f" (URL: {url[:100]}...)" if len(url) > 100 else f" (URL: {url})"
+                    attachment_descriptions.append(desc)
                 elif content_type.startswith('video/'):
-                    attachment_descriptions.append(f"[Video: {name}]")
+                    desc = f"[Video: {name}]"
+                    if url:
+                        desc += f" (URL: {url[:100]}...)" if len(url) > 100 else f" (URL: {url})"
+                    attachment_descriptions.append(desc)
                 elif content_type.startswith('audio/'):
-                    attachment_descriptions.append(f"[Audio: {name}]")
+                    desc = f"[Audio: {name}]"
+                    if url:
+                        desc += f" (URL: {url[:100]}...)" if len(url) > 100 else f" (URL: {url})"
+                    attachment_descriptions.append(desc)
                 else:
-                    attachment_descriptions.append(f"[File: {name}]")
+                    desc = f"[File: {name}]"
+                    if url:
+                        desc += f" (URL: {url[:100]}...)" if len(url) > 100 else f" (URL: {url})"
+                    attachment_descriptions.append(desc)
             else:
-                attachment_descriptions.append(f"[Attachment: {name}]")
+                desc = f"[Attachment: {name}]"
+                if url:
+                    desc += f" (URL: {url[:100]}...)" if len(url) > 100 else f" (URL: {url})"
+                attachment_descriptions.append(desc)
         
         return " ".join(attachment_descriptions)
     

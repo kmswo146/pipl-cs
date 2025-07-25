@@ -45,7 +45,8 @@ class ReplyEngine:
             # Get the last user message
             last_user_msg = self._get_last_user_message(conversation_history)
             if not last_user_msg:
-                return "I didn't receive your message clearly. Could you please try again?"
+                print("DEBUG: No clear user message found - not responding")
+                return ""  # Return empty string to indicate no reply needed
             
             print(f"Processing user message: {last_user_msg}")
             
@@ -119,11 +120,42 @@ class ReplyEngine:
     def _get_last_user_message(self, history):
         """Extract the last user message from conversation history"""
         for msg in reversed(history):
-            if msg['role'] == 'user' and msg['message'].strip():
+            if msg['role'] == 'user':
+                # First check if message has attachments
+                has_attachments = msg.get('attachments') and len(msg.get('attachments', [])) > 0
+                
                 # Clean HTML from message
                 import re
-                clean_msg = re.sub(r'<[^>]+>', '', msg['message'])
-                return ' '.join(clean_msg.split()).strip()
+                clean_msg = re.sub(r'<[^>]+>', '', msg['message']).strip()
+                
+                print(f"DEBUG: Last user message analysis:")
+                print(f"  Raw message: {repr(msg['message'])}")
+                print(f"  Clean message: {repr(clean_msg)}")
+                print(f"  Has attachments: {has_attachments}")
+                if has_attachments:
+                    print(f"  Attachment count: {len(msg.get('attachments', []))}")
+                    for i, att in enumerate(msg.get('attachments', [])):
+                        print(f"    Attachment {i+1}: type={att.get('type')}, content_type={att.get('content_type')}")
+                
+                # If message has text content, return it
+                if clean_msg:
+                    return clean_msg
+                
+                # If message has only attachments (no text), check if they are images
+                if has_attachments:
+                    for att in msg.get('attachments', []):
+                        content_type = att.get('content_type', '')
+                        if content_type.startswith('image/'):
+                            print(f"DEBUG: Found image-only message - returning empty string (no reply)")
+                            return ""  # Return empty string so main logic treats as "no message"
+                    
+                    # Non-image attachments, treat as regular message
+                    print(f"DEBUG: Found non-image attachment - returning attachment description")
+                    return msg['message']  # Return the formatted attachment text
+                
+                print(f"DEBUG: Message has no content and no attachments - skipping")
+        
+        print(f"DEBUG: No valid user message found in history")
         return ""
 
 # Global instance

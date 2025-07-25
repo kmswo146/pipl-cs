@@ -50,5 +50,4 @@ else
 fi
 
 echo -e "${GREEN}All services started successfully!${NC}"
-echo -e "${YELLOW}To stop services, use: pkill -f 'gunicorn.*app:app' && pkill -f 'python3 run_worker.py'${NC}"
 

@@ -1,0 +1,31 @@
+User Plans & Workspace Context Information:
+
+IMPORTANT CONSIDERATIONS:
+- User from conversation may not be the user to lookup
+- Users can join someone else's workspace
+- Always check workspace membership and permissions
+- Plan limits apply to workspace, not individual users
+
+KEY FIELDS TO CHECK:
+- user.workspace_id: Which workspace the user belongs to
+- workspace.plan_id: Which plan the workspace is on
+- workspace.owner_email: Who owns/pays for the workspace
+- plan.features: What features are available
+- plan.limits: Usage limits (emails/month, campaigns, etc.)
+
+COMMON SCENARIOS:
+- User asks about "their" plan but they're on someone else's workspace
+- Need to check who actually pays for the workspace
+- Different users in same workspace have different permissions
+- Plan limits affect all users in the workspace
+
+COLLECTIONS (UPDATE WITH YOUR ACTUAL STRUCTURE):
+- users: User profiles and workspace membership
+- workspaces: Workspace details and plan information
+- plans: Plan definitions with features and limits
+- billing: Billing and subscription information
+
+TROUBLESHOOTING:
+- If user has access issues, check workspace membership
+- If feature unavailable, check plan limits
+- If billing issues, check workspace owner's subscription status

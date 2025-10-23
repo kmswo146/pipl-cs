@@ -40,21 +40,21 @@ class IntercomAPI:
         }
         
         # Debug: Print the exact payload being sent
-        print(f"DEBUG: Sending payload to Intercom:")
-        print(f"DEBUG: URL: {url}")
-        print(f"DEBUG: Payload: {payload}")
-        print(f"DEBUG: Message body contains {{: {'{{' in message}")
-        print(f"DEBUG: Message body contains %7B: {'%7B' in message}")
+        # print(f"DEBUG: Sending payload to Intercom:")
+        # print(f"DEBUG: URL: {url}")
+        # print(f"DEBUG: Payload: {payload}")
+        # print(f"DEBUG: Message body contains {{: {'{{' in message}")
+        # print(f"DEBUG: Message body contains %7B: {'%7B' in message}")
         
         try:
             response = requests.post(url, headers=self.headers, json=payload)
             
             # Debug: Print response details
-            print(f"DEBUG: Response status: {response.status_code}")
-            print(f"DEBUG: Response headers: {dict(response.headers)}")
+            # print(f"DEBUG: Response status: {response.status_code}")
+            # print(f"DEBUG: Response headers: {dict(response.headers)}")
             if response.ok:
                 response_data = response.json()
-                print(f"DEBUG: Response body preview: {str(response_data)[:500]}...")
+                # print(f"DEBUG: Response body preview: {str(response_data)[:500]}...")
                 print(f"Successfully sent reply to conversation {conversation_id}")
                 return True
             else:
@@ -79,18 +79,18 @@ class IntercomAPI:
         }
         
         # Debug: Print the exact payload being sent
-        print(f"DEBUG: Sending NOTE payload to Intercom:")
-        print(f"DEBUG: URL: {url}")
-        print(f"DEBUG: Payload: {payload}")
+        # print(f"DEBUG: Sending NOTE payload to Intercom:")
+        # print(f"DEBUG: URL: {url}")
+        # print(f"DEBUG: Payload: {payload}")
         
         try:
             response = requests.post(url, headers=self.headers, json=payload)
             
             # Debug: Print response details
-            print(f"DEBUG: Note response status: {response.status_code}")
+            # print(f"DEBUG: Note response status: {response.status_code}")
             if response.ok:
                 response_data = response.json()
-                print(f"DEBUG: Note response preview: {str(response_data)[:500]}...")
+                # print(f"DEBUG: Note response preview: {str(response_data)[:500]}...")
                 print(f"Successfully sent note to conversation {conversation_id}")
                 return True
             else:

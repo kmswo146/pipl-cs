@@ -13,6 +13,10 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'worker'))
 from intercom_api import intercom_api
 
+# Import function library
+from assistant_functions import get_functions_documentation, execute_function
+from reasoning_engine import reasoning_engine
+
 
 class AssistantProcessor:
     def __init__(self):
@@ -43,12 +47,17 @@ class AssistantProcessor:
             # Get conversation context for better responses
             conversation_data = intercom_api.get_conversation(conversation_id)
             context = ""
+            user_email = None
+            
             if conversation_data:
                 history = intercom_api.extract_conversation_history(conversation_data, limit_messages=10)
                 context = self._format_conversation_context(history)
+                
+                # Extract user email from conversation
+                user_email = self._extract_user_email(conversation_data)
             
             # Generate AI response based on the command and context
-            response = self._generate_assistant_response(command, context, conversation_id)
+            response = self._generate_assistant_response(command, context, conversation_id, user_email)
             
             return response
             
@@ -69,45 +78,133 @@ class AssistantProcessor:
         
         return "\n".join(context_lines)
     
-    def _generate_assistant_response(self, command, context, conversation_id):
-        """Generate AI response for assistant command"""
-        
-        system_prompt = f"""You are {self.assistant_name.title()}, an AI assistant helping customer support admins. 
-        You can analyze conversations, suggest responses, summarize issues, research problems, and provide insights.
-        
-        Be helpful, concise, and professional. When analyzing conversations, focus on:
-        - Understanding the customer's main issue
-        - Identifying any unresolved problems
-        - Suggesting helpful next steps
-        - Providing relevant information or insights
-        
-        Keep responses under 500 words unless more detail is specifically requested."""
-        
-        user_prompt = f"""Admin command: {command}
-
-Conversation context (last few messages):
-{context}
-
-Conversation ID: {conversation_id}
-
-Please help with this request."""
-        
+    def _extract_user_email(self, conversation_data):
+        """Extract the user's email from conversation data"""
         try:
-            response = openai_utils.chat_completion(
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                model=config.DEFAULT_MODEL,
-                max_tokens=1000,
-                temperature=0.7
-            )
+            # Get user email from the conversation source
+            source = conversation_data.get('source', {})
+            author = source.get('author', {})
+            user_email = author.get('email', '')
             
-            return response.strip()
+            if user_email:
+                print(f"DEBUG: Extracted user email from conversation: {user_email}")
+                return user_email
+            
+            # Fallback: try to get from conversation parts (first user message)
+            parts = conversation_data.get('conversation_parts', {}).get('conversation_parts', [])
+            for part in parts:
+                if part.get('author', {}).get('type') == 'user':
+                    email = part.get('author', {}).get('email', '')
+                    if email:
+                        print(f"DEBUG: Extracted user email from conversation parts: {email}")
+                        return email
+            
+            print("DEBUG: No user email found in conversation data")
+            return None
             
         except Exception as e:
-            print(f"Error generating {self.assistant_name} response: {e}")
-            return f"I'm having trouble processing your request right now. Please try again later. (Error: {str(e)})"
+            print(f"Error extracting user email: {e}")
+            return None
+    
+    def _generate_assistant_response(self, command, context, conversation_id, user_email=None):
+        """Generate AI response using shared reasoning engine"""
+        
+        # Prepare context data for reasoning engine
+        context_data = {
+            "user_email": user_email,
+            "conversation_id": conversation_id,
+            "conversation_context": context
+        }
+        
+        # Use shared reasoning engine in self-thinking mode
+        result = reasoning_engine.execute_reasoning(
+            query=command,
+            context_data=context_data,
+            mode="self_thinking",
+            max_iterations=5
+        )
+        
+        return result.get("answer", "I couldn't complete the reasoning process.")
+    
+    # OLD METHODS - Now using shared reasoning engine
+    # The agentic reasoning logic has been moved to reasoning_engine.py
+    
+    def _format_function_result(self, func_name, result):
+        """Format function results in a user-friendly way"""
+        try:
+            if func_name == "check_user_plan":
+                # NO TRIMMING for user plan - return complete information
+                return self._format_user_plan_result(result)
+            else:
+                # Generic formatting for other functions
+                if isinstance(result, dict):
+                    # Extract key information if it's a dict
+                    key_info = []
+                    for key, value in result.items():
+                        if key in ['error', 'message', 'status']:
+                            key_info.append(f"{key}: {value}")
+                        elif isinstance(value, (str, int, float, bool)):
+                            key_info.append(f"{key}: {value}")
+                    
+                    if key_info:
+                        return " | ".join(key_info[:3])  # Limit to first 3 key items
+                
+                return str(result)[:200] + "..." if len(str(result)) > 200 else str(result)
+                
+        except Exception as e:
+            print(f"Error formatting function result: {e}")
+            # Even for errors, don't trim user plan results
+            if func_name == "check_user_plan":
+                return str(result)
+            return str(result)[:100] + "..."
+    
+    def _format_user_plan_result(self, result):
+        """Format check_user_plan results - show ALL workspace information"""
+        try:
+            if isinstance(result, dict):
+                # Don't trim - return the full result so AI can see all workspaces
+                # Just clean up HTML in email fields
+                clean_result = self._clean_html_from_result(result)
+                
+                # Return more complete information
+                return str(clean_result)
+            
+            return str(result)
+            
+        except Exception as e:
+            print(f"Error formatting user plan result: {e}")
+            return str(result)
+    
+    def _clean_html_from_result(self, result):
+        """Clean HTML tags from result data"""
+        import re
+        
+        def clean_value(value):
+            if isinstance(value, str) and '<a href="mailto:' in value:
+                # Extract email from HTML
+                email_match = re.search(r'mailto:([^"]+)', value)
+                if email_match:
+                    return email_match.group(1)
+            elif isinstance(value, str) and '<a href="' in value:
+                # Extract URL from HTML
+                url_match = re.search(r'href="([^"]+)"', value)
+                if url_match:
+                    return url_match.group(1)
+            elif isinstance(value, str):
+                # Remove any other HTML tags
+                return re.sub(r'<[^>]+>', '', value)
+            
+            return value
+        
+        def clean_dict(d):
+            if isinstance(d, dict):
+                return {k: clean_dict(v) for k, v in d.items()}
+            elif isinstance(d, list):
+                return [clean_dict(item) for item in d]
+            else:
+                return clean_value(d)
+        
+        return clean_dict(result)
     
     def send_note_reply(self, conversation_id, response_text, admin_id):
         """Send assistant's response as an admin note"""

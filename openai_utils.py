@@ -14,32 +14,40 @@ openai_client = openai.AzureOpenAI(
     azure_endpoint=config.AZURE_OPENAI_ENDPOINT
 )
 
-def call_openai_with_retry(messages, max_completion_tokens=300, temperature=0.7, response_format=None, max_retries=3):
+def call_openai_with_retry(messages, max_completion_tokens=300, temperature=0.7, response_format=None, max_retries=3, model=None):
     """
     Call OpenAI API with retry logic
     
     Args:
         messages: List of message objects for the API
         max_completion_tokens: Maximum tokens to generate
-        temperature: Temperature for response generation
+        temperature: Temperature for response generation (ignored for models that don't support it)
         response_format: Optional response format (e.g., {"type": "json_object"})
         max_retries: Maximum number of retry attempts
+        model: Model to use (defaults to config.DEFAULT_MODEL)
     
     Returns:
         OpenAI response object or None if all retries failed
     """
+    
+    # Models that don't support custom temperature
+    no_temp_models = ['gpt-5-mini', 'gpt-5-nano']
     
     for attempt in range(max_retries):
         try:
             print(f"DEBUG: OpenAI API call attempt {attempt + 1}/{max_retries}")
             
             # Prepare API call parameters
+            selected_model = model or config.DEFAULT_MODEL
             api_params = {
-                "model": config.DEFAULT_MODEL,
+                "model": selected_model,
                 "messages": messages,
-                "max_completion_tokens": max_completion_tokens,
-                "temperature": temperature
+                "max_completion_tokens": max_completion_tokens
             }
+            
+            # Only add temperature for models that support it
+            if selected_model not in no_temp_models:
+                api_params["temperature"] = temperature
             
             # Add response format if specified
             if response_format:

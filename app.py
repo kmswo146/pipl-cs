@@ -11,7 +11,7 @@ def webhook():
     topic = data.get('topic', 'unknown')
     
     print(f'Received Intercom webhook - Topic: {topic}')
-    print(f'DEBUG: Full webhook payload: {data}')
+    # print(f'DEBUG: Full webhook payload: {data}')
     
     try:
         if topic in ['conversation.user.created', 'conversation.user.replied']:
@@ -126,6 +126,11 @@ def handle_admin_note(data):
         
         if not note_content:
             print('No note content found in webhook payload')
+            return
+        
+        # Check if this note is from the bot itself (prevent infinite loop)
+        if str(admin_id) == str(config.BOT_ADMIN_ID):
+            print(f'Note from bot itself (admin_id: {admin_id}) - ignoring to prevent loop')
             return
         
         # Check if this is an assistant command

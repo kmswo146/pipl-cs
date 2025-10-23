@@ -64,6 +64,42 @@ class IntercomAPI:
             print(f"Error sending reply to {conversation_id}: {e}")
             return False
     
+    def send_note(self, conversation_id, note_text, admin_id=None):
+        """Send an admin note to a conversation"""
+        if admin_id is None:
+            admin_id = config.BOT_ADMIN_ID
+            
+        url = f'{self.base_url}/conversations/{conversation_id}/reply'
+        
+        payload = {
+            "type": "admin",
+            "admin_id": str(admin_id),
+            "message_type": "note",  # This makes it a note instead of message
+            "body": note_text
+        }
+        
+        # Debug: Print the exact payload being sent
+        print(f"DEBUG: Sending NOTE payload to Intercom:")
+        print(f"DEBUG: URL: {url}")
+        print(f"DEBUG: Payload: {payload}")
+        
+        try:
+            response = requests.post(url, headers=self.headers, json=payload)
+            
+            # Debug: Print response details
+            print(f"DEBUG: Note response status: {response.status_code}")
+            if response.ok:
+                response_data = response.json()
+                print(f"DEBUG: Note response preview: {str(response_data)[:500]}...")
+                print(f"Successfully sent note to conversation {conversation_id}")
+                return True
+            else:
+                print(f"Failed to send note to {conversation_id}: {response.text}")
+                return False
+        except Exception as e:
+            print(f"Error sending note to {conversation_id}: {e}")
+            return False
+    
     def extract_conversation_history(self, conversation_data, limit_messages=20):
         """Extract conversation history in a clean format, limited to recent messages"""
         if not conversation_data:

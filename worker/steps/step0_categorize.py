@@ -47,7 +47,6 @@ CATEGORY_ACTIONS = {
             "Let us check",
             "let us check",
             "checking",
-            "Looking into this right away",
             "let us look into this"
         ]
     },

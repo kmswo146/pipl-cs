@@ -95,6 +95,12 @@ def handle_conversation(conv_doc):
         elif reply_text:
             print(f"Generated reply for {conversation_id}: {reply_text[:100]}...")
             
+            # CRITICAL: Re-check if bot was paused during processing
+            current_conv = db.intercom_conversations.find_one({"conversation_id": conversation_id})
+            if current_conv and current_conv.get('bot_paused', False):
+                print(f"Bot was paused during processing - canceling reply for {conversation_id}")
+                return
+            
             # Send reply via Intercom API
             success = intercom_api.reply(conversation_id, reply_text, config.BOT_ADMIN_ID)
             

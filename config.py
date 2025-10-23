@@ -6,8 +6,9 @@ load_dotenv()
 
 # Bot Configuration
 BOT_ADMIN_ID = 8393893      # dedicated Intercom teammate used by the bot
-DELAY_MIN_SECONDS = 90      # minimum delay after the LAST user message (increased to handle Intercom API lag)
-DELAY_MAX_SECONDS = 180     # maximum delay after the LAST user message
+BOT_ASSISTANT_NAME = "katie"  # name for AI assistant triggered by admin notes
+DELAY_MIN_SECONDS = 20      # minimum delay after the LAST user message
+DELAY_MAX_SECONDS = 50      # maximum delay after the LAST user message
 
 # Intercom API
 INTERCOM_ACCESS_TOKEN = os.getenv('INTERCOM_TOKEN')
@@ -17,7 +18,7 @@ INTERCOM_WEBHOOK_SECRET = os.getenv('INTERCOM_WEBHOOK_SECRET')
 AZURE_OPENAI_ENDPOINT = os.getenv('AZURE_OPENAI_ENDPOINT')
 AZURE_OPENAI_KEY = os.getenv('AZURE_OPENAI_KEY')
 AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-preview')
-DEFAULT_MODEL = os.getenv('DEFAULT_MODEL', 'gpt-4.1')
+DEFAULT_MODEL = os.getenv('DEFAULT_MODEL', 'gpt-5-chat')
 
 # MongoDB
 DASHBOARD_DB_URI = os.getenv('DASHBOARD_DB_URI')

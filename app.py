@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import config
 import db
+from assistant_processor import assistant_processor
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ def webhook():
     topic = data.get('topic', 'unknown')
     
     print(f'Received Intercom webhook - Topic: {topic}')
+    print(f'DEBUG: Full webhook payload: {data}')
     
     try:
         if topic in ['conversation.user.created', 'conversation.user.replied']:
@@ -18,8 +20,12 @@ def webhook():
             handle_admin_reply(data)
         elif topic == 'conversation.admin.closed':
             handle_conversation_closed(data)
+        elif topic == 'conversation.admin.noted':
+            print(f'DEBUG: Processing admin note webhook')
+            handle_admin_note(data)
         else:
             print(f'Unhandled topic: {topic}')
+            print(f'DEBUG: Available topics we handle: conversation.user.created, conversation.user.replied, conversation.admin.replied, conversation.admin.closed, conversation.admin.noted')
             
     except Exception as e:
         print(f'Error processing webhook: {e}')
@@ -81,6 +87,69 @@ def handle_conversation_closed(data):
         
     except Exception as e:
         print(f'Error handling conversation closed: {e}')
+
+def handle_admin_note(data):
+    """Handle admin note creation events"""
+    try:
+        conversation_id = data['data']['item']['id']
+        
+        # Extract note content and admin info
+        # Note: The exact structure may vary, we'll handle different possible structures
+        note_content = None
+        admin_id = None
+        
+        # Try different possible webhook structures for notes
+        item = data['data']['item']
+        
+        # Method 1: Note might be in conversation_parts
+        if 'conversation_parts' in item:
+            parts = item['conversation_parts'].get('conversation_parts', [])
+            if parts:
+                latest_part = parts[0]  # Assuming latest is first
+                if latest_part.get('part_type') == 'note':
+                    note_content = latest_part.get('body', '')
+                    admin_id = latest_part.get('author', {}).get('id')
+        
+        # Method 2: Note might be directly in item
+        if not note_content and 'body' in item:
+            note_content = item.get('body', '')
+            admin_id = item.get('author', {}).get('id')
+        
+        # Method 3: Note might be in a 'note' field
+        if not note_content and 'note' in item:
+            note_content = item['note'].get('body', '')
+            admin_id = item['note'].get('author', {}).get('id')
+        
+        print(f'Admin note in conversation {conversation_id}')
+        print(f'Note content: {note_content}')
+        print(f'Admin ID: {admin_id}')
+        
+        if not note_content:
+            print('No note content found in webhook payload')
+            return
+        
+        # Check if this is an assistant command
+        if assistant_processor.is_assistant_command(note_content):
+            print(f'Detected {config.BOT_ASSISTANT_NAME} command in note')
+            
+            # Process the command
+            response = assistant_processor.process_assistant_note(conversation_id, note_content, admin_id)
+            
+            if response:
+                # Send the response back as a note
+                success = assistant_processor.send_note_reply(conversation_id, response, config.BOT_ADMIN_ID)
+                
+                if success:
+                    print(f'Successfully processed {config.BOT_ASSISTANT_NAME} command')
+                else:
+                    print(f'Failed to send {config.BOT_ASSISTANT_NAME} response')
+        else:
+            print(f'Note does not start with {config.BOT_ASSISTANT_NAME} - ignoring')
+            
+    except Exception as e:
+        print(f'Error handling admin note: {e}')
+        import traceback
+        print(f'Traceback: {traceback.format_exc()}')
 
 if __name__ == '__main__':
     print("Starting Intercom webhook server...")

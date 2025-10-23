@@ -8,6 +8,9 @@ from ..function_registry import FunctionDefinition
 from ..workspace_resolver import resolve_workspace_and_org
 from bson import ObjectId
 
+# Campaign status constants
+CAMPAIGN_STATUSES = ["ACTIVE", "PAUSED", "ERROR", "INACTIVE", "COMPLETED"]
+
 
 def register_campaign_functions(registry):
     """Register all campaign-related functions"""
@@ -42,12 +45,17 @@ def register_campaign_functions(registry):
             },
             "status": {
                 "type": "string", 
-                "description": "Filter by campaign status (ACTIVE, PAUSED, COMPLETED, etc.)", 
+                "description": "Filter by campaign status (ACTIVE, PAUSED, ERROR, INACTIVE, COMPLETED)", 
                 "required": False
             },
             "limit": {
                 "type": "integer", 
-                "description": "Maximum number of campaigns to return (default: 20)", 
+                "description": "Maximum number of campaigns to return (default: 10)", 
+                "required": False
+            },
+            "mode": {
+                "type": "string", 
+                "description": "Output mode: BASIC (essential info only) or FULL (complete details). Default: BASIC", 
                 "required": False
             }
         },
@@ -74,7 +82,7 @@ def register_campaign_functions(registry):
     ))
 
 
-def get_campaigns(user_email=None, workspace_id=None, workspace_name=None, status=None, limit=20):
+def get_campaigns(user_email=None, workspace_id=None, workspace_name=None, status=None, limit=10, mode="BASIC"):
     """
     Get campaigns for a user or workspace
     
@@ -109,48 +117,214 @@ def get_campaigns(user_email=None, workspace_id=None, workspace_name=None, statu
         # Build campaign query
         campaign_query = {
             "workspace_id": ObjectId(resolved_workspace_id),
-            "organization_id": ObjectId(resolved_org_id)
+            "organization_id": ObjectId(resolved_org_id),
+            "status": {"$ne": "DELETED"}  # Always exclude DELETED campaigns
         }
         
         # Add status filter if specified
         if status:
             campaign_query["status"] = status.upper()
         
-        # Get campaigns
-        campaigns_cursor = db.execute_query(
-            "campaigns", 
-            "find", 
-            campaign_query,
-            limit=limit,
-            sort=[("created_at", -1)]  # Most recent first
-        )
+        print(f"DEBUG: Campaign query: {campaign_query}")
+        print(f"DEBUG: Resolved workspace_id: {resolved_workspace_id}")
+        print(f"DEBUG: Resolved org_id: {resolved_org_id}")
+        print(f"DEBUG: Mode: {mode}, Limit: {limit}")
+        
+        # Choose projection based on mode
+        if mode.upper() == "BASIC":
+            projection = {
+                "_id": 1,
+                "camp_name": 1,
+                "status": 1,
+                "workspace_id": 1,
+                "organization_id": 1,
+                "lead_count": 1,
+                "sent_count": 1,
+                "opened_count": 1,
+                "replied_count": 1,
+                "bounced_count": 1,
+                "lead_contacted_count": {"$ifNull": ["$lead_contacted_count", 0]},
+                "created_at": 1,
+                "modified_at": 1,
+                "daily_limit": 1,
+                "open_rate": {
+                    "$cond": {
+                        "if": {"$eq": ["$lead_contacted_count", 0]},
+                        "then": 0,
+                        "else": {
+                            "$round": [
+                                {
+                                    "$multiply": [
+                                        {"$divide": ["$unique_opened_count", "$lead_contacted_count"]},
+                                        100
+                                    ]
+                                }, 1]
+                        }
+                    }
+                },
+                "replied_rate": {
+                    "$cond": {
+                        "if": {"$eq": ["$lead_contacted_count", 0]},
+                        "then": 0,
+                        "else": {
+                            "$round": [
+                                {
+                                    "$multiply": [
+                                        {"$divide": ["$replied_count", "$lead_contacted_count"]},
+                                        100
+                                    ]
+                                }, 1]
+                        }
+                    }
+                }
+            }
+        else:
+            # Full projection (your original complex one)
+            projection = {
+                    "_id": 1, 
+                    "camp_name": 1, 
+                    "parent_camp_id": 1, 
+                    "events": {"$ifNull": ["$events", None]}, 
+                    "first_wait_time": {"$ifNull": ["$first_wait_time", None]},
+                    "organization_id": 1, 
+                    "workspace_id": 1, 
+                    "status": 1, 
+                    "lead_count": 1, 
+                    "tags": {"$ifNull": ["$tags", None]},
+                    "email_accounts": 1, 
+                    "ea_n_tags": {"$ifNull": ["$ea_n_tags", None]},
+                    "sent_count": 1, 
+                    "opened_count": 1, 
+                    "unique_opened_count": 1, 
+                    "replied_count": 1, 
+                    "bounced_count": 1, 
+                    "unsubscribed_count": 1, 
+                    "linkclick_count": 1,
+                    "unique_linkclick_count": 1, 
+                    "linkopened_count": 1, 
+                    "unique_linkopened_count": 1, 
+                    "lead_contacted_count": {"$ifNull": ["$lead_contacted_count", 0]},
+                    "daily_limit": 1, 
+                    "interval_limit_in_min": 1, 
+                    "stop_on_lead_replied": 1, 
+                    "is_link_tracking": 1, 
+                    "is_emailopened_tracking": 1,
+                    "created_at": 1, 
+                    "modified_at": 1, 
+                    "created_by": 1, 
+                    "modified_by": 1, 
+                    "send_priority": 1, 
+                    "is_unsubscribed_link": 1, 
+                    "send_as_txt": 1, 
+                    "last_lead_sent": 1,
+                    "error_desc": {"$ifNull": ["$error_desc", ""]},
+                    "camp_st_date": {"$ifNull": ["$camp_st_date", ""]},
+                    "camp_end_date": {"$ifNull": ["$camp_end_date", ""]},
+                    "email_sent_today": {"$ifNull": ["$email_sent_today", ""]},
+                    "positive_reply_count": {"$ifNull": ["$positive_reply_count", 0]},
+                    "negative_reply_count": {"$ifNull": ["$negative_reply_count", 0]},
+                    "neutral_reply_count": {"$ifNull": ["$neutral_reply_count", 0]},
+                    "opportunity_val": {"$ifNull": ["$opportunity_val", 0]},
+                    "exclude_ooo": 1,
+                    "is_acc_based_sending": 1,
+                    "is_pause_on_bouncerate": {"$ifNull": ["$is_pause_on_bouncerate", 0]},
+                    "bounce_rate_limit": {"$ifNull": ["$bounce_rate_limit", 5]},
+                    "is_paused_at_bounced": {"$ifNull": ["$is_paused_at_bounced", 0]},
+                    "last_paused_at_bounced": {"$ifNull": ["$last_paused_at_bounced", ""]},
+                    "send_risky_email": {"$ifNull": ["$send_risky_email", 0]},
+                    "unsub_blocklist": {"$ifNull": ["$unsub_blocklist", 0]},
+                    "other_email_acc": {"$ifNull": ["$other_email_acc", 0]},
+                    "err_email_acc": {"$ifNull": ["$err_email_acc", 0]},
+                    "is_esp_match": {"$ifNull": ["$is_esp_match", 0]},
+                    "ooo_nr_opt": {"$ifNull": ["$ooo_nr_opt", None]},
+                    "ooo_nr_ai_d": {"$ifNull": ["$ooo_nr_ai_d", 7]},
+                    "ooo_nr_d": {"$ifNull": ["$ooo_nr_d", 7]},
+                    "error_time": 1,
+                    "new_lead_contacted_today": 1,
+                    "monthly_mail_reached": 1,
+                    "schedule": {"$ifNull": ["$schedule", {}]},
+                    "completed_lead_count": {"$ifNull": ["$completed_lead_count", 0]},
+                    "custom_fields": {"$ifNull": ["$custom_fields", ""]},
+                    "sequences": {"$ifNull": ["$sequences", []]},
+                    "sequence_steps": {"$size": {"$ifNull": ["$sequences", []]}},
+                    "sheet_tasks": {"$ifNull": ["$sheet_tasks", []]},
+                    "camp_emails": {"$ifNull": ["$camp_emails", []]},
+                    "template_id": {"$ifNull": ["$template_id", ""]},
+                    "is_ev_processing": {"$ifNull": ["$is_ev_processing", 0]},
+                    "open_rate": {
+                        "$cond": {
+                            "if": {"$eq": ["$lead_contacted_count", 0]},
+                            "then": 0,
+                            "else": {
+                                "$round": [
+                                    {
+                                        "$multiply": [
+                                            {"$divide": ["$unique_opened_count", "$lead_contacted_count"]},
+                                            100
+                                        ]
+                                    }, 1]
+                            }
+                        }
+                    },
+                    "replied_rate": {
+                        "$cond": {
+                            "if": {"$eq": ["$lead_contacted_count", 0]},
+                            "then": 0,
+                            "else": {
+                                "$round": [
+                                    {
+                                        "$multiply": [
+                                            {"$divide": ["$replied_count", "$lead_contacted_count"]},
+                                            100
+                                        ]
+                                    }, 1]
+                            }
+                        }
+                    },
+                    "is_replied_email_account_id": {"$ifNull": ["$is_replied_email_account_id", 0]},
+                    "is_subseq_add_cc": {"$ifNull": ["$is_subseq_add_cc", 0]},
+                    "subseq_add_cc": {"$ifNull": ["$subseq_add_cc", []]}
+            }
+        
+        # MongoDB aggregation pipeline
+        pipeline = [
+            {"$match": campaign_query},
+            {"$project": projection},
+            {"$sort": {"created_at": -1}},
+            {"$limit": limit}
+        ]
+        
+        # Execute aggregation pipeline
+        campaigns_cursor = db.execute_query("campaigns", "aggregate", pipeline)
         
         campaigns_list = []
         status_counts = {}
+        
+        print(f"DEBUG: Processing campaigns from cursor...")
         
         for campaign in campaigns_cursor:
             campaign_status = campaign.get("status", "UNKNOWN")
             status_counts[campaign_status] = status_counts.get(campaign_status, 0) + 1
             
-            # Get basic campaign info
-            campaign_info = {
-                "campaign_id": str(campaign.get("_id")),
-                "name": campaign.get("name", "Unnamed Campaign"),
-                "status": campaign_status,
-                "created_at": campaign.get("created_at"),
-                "updated_at": campaign.get("updated_at"),
-                "campaign_type": campaign.get("campaign_type", "Unknown"),
-                "total_contacts": campaign.get("total_contacts", 0),
-                "emails_sent": campaign.get("emails_sent", 0),
-                "emails_opened": campaign.get("emails_opened", 0),
-                "emails_clicked": campaign.get("emails_clicked", 0),
-                "bounce_rate": campaign.get("bounce_rate", 0),
-                "reply_rate": campaign.get("reply_rate", 0)
-            }
+            # Debug: Print each campaign details
+            print(f"DEBUG: Campaign - ID: {campaign.get('_id')}, Name: {campaign.get('camp_name')}, Status: {campaign_status}")
+            print(f"       Workspace: {campaign.get('workspace_id')}, Org: {campaign.get('organization_id')}")
             
-            campaigns_list.append(campaign_info)
+            # Convert ObjectId to string for JSON serialization
+            if "_id" in campaign:
+                campaign["_id"] = str(campaign["_id"])
+            if "organization_id" in campaign:
+                campaign["organization_id"] = str(campaign["organization_id"])
+            if "workspace_id" in campaign:
+                campaign["workspace_id"] = str(campaign["workspace_id"])
+            
+            campaigns_list.append(campaign)
         
-        return {
+        print(f"DEBUG: Found {len(campaigns_list)} campaigns")
+        print(f"DEBUG: Status counts: {status_counts}")
+        
+        # Debug: Print the actual return data structure
+        result = {
             "campaigns": campaigns_list,
             "workspace_info": {
                 "workspace_id": resolved_workspace_id,
@@ -163,6 +337,11 @@ def get_campaigns(user_email=None, workspace_id=None, workspace_name=None, statu
                 "filter_applied": {"status": status} if status else None
             }
         }
+        
+        print(f"DEBUG: Returning {len(result['campaigns'])} campaigns to Katie")
+        print(f"DEBUG: Campaign names: {[c.get('camp_name') for c in result['campaigns']]}")
+        
+        return result
         
     except Exception as e:
         import traceback

@@ -23,7 +23,7 @@ DEFAULT_MODEL = os.getenv('DEFAULT_MODEL', 'gpt-5-chat')
 # AI Model Configuration
 STRONG_REASONING = 'o1'
 NORMAL = 'gpt-5-chat'
-FAST = 'gpt-4-mini'
+FAST = 'gpt4omini'
 NANO = 'gpt-5-nano'
 
 # MongoDB
